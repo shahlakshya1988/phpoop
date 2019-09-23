@@ -7,7 +7,7 @@
                 Admin
                 <small>Subheading</small>
                 <?php 
-                    var_dump($database->connection);
+                    //var_dump($database->connection);
                 ?>
             </h1>
             <ol class="breadcrumb">
