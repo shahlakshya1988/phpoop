@@ -25,12 +25,21 @@ class Database{
 
 	public function query($sql){
 		$result = mysqli_query($this->connection,$sql);
-		if(!$result){
-			die(mysqli_error($this->connection));
-		}
+		$this->confirmQuery($result);
 		return $result;
 	}
 	
+	private function confirmQuery($result){
+		if(!$result){
+			die(mysqli_error($this->connection));
+		}
+	}
+
+	public function escape_string($string){
+		return mysqli_real_escape_string($this->connection,trim($string));
+	}
+
+
 }
 $database = new Database();
 ?>
