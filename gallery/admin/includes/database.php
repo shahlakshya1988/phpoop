@@ -19,24 +19,30 @@ class Database{
 		var_dump(DB_USER);
 		var_dump(DB_PASS);
 		var_dump(DB_NAME); */
-		$this->connection = mysqli_connect(DB_HOST,DB_USER,DB_PASS,DB_NAME);
+		//$this->connection = mysqli_connect(DB_HOST,DB_USER,DB_PASS,DB_NAME);
+		$this->connection = new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
 		//var_dump($this->connection);
 	}
 
 	public function query($sql){
-		$result = mysqli_query($this->connection,$sql);
-		$this->confirmQuery($result);
+		//$result = mysqli_query($this->connection,$sql);
+		
+		$result = $this->connection->query($sql);
 		return $result;
 	}
 	
-	private function confirmQuery($result){
+	public function confirmQuery($result){
 		if(!$result){
-			die(mysqli_error($this->connection));
+			die($this->connection->error);
 		}
 	}
 
 	public function escape_string($string){
-		return mysqli_real_escape_string($this->connection,trim($string));
+		return $this->connection->real_escape_string($this->connection,trim($string));
+	}
+	
+	public function the_insert_id(){
+		return $this->connection->insert_id;
 	}
 
 

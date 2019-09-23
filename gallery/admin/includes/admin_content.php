@@ -8,6 +8,11 @@
                 <small>Subheading</small>
                 <?php 
                     //var_dump($database->connection);
+					$sql="SELECT * FROM `users` ";
+					$result = $database->query($sql);
+					$database->confirmQuery($result);
+					$fetch = mysqli_fetch_assoc($result);
+					// var_dump($fetch);
                 ?>
             </h1>
             <ol class="breadcrumb">
