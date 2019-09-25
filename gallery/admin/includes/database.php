@@ -38,7 +38,7 @@ class Database{
 	}
 
 	public function escape_string($string){
-		return $this->connection->real_escape_string($this->connection,trim($string));
+		return $this->connection->real_escape_string(trim($string));
 	}
 
 	public function the_insert_id(){

@@ -13,10 +13,15 @@
 					$database->confirmQuery($result);
 					$fetch = mysqli_fetch_assoc($result); */
 					// var_dump($fetch);
-                    $users = new Users();
-                    $allUsers = $users->find_all_users();
+                    //$users = new Users();
+                    $allUsers = Users::find_all_users();
                     while($fh_users = mysqli_fetch_assoc($allUsers)){
-                        //echo "<pre>",print_r($fh_users),"</pre>";
+                        echo "<pre>",print_r($fh_users),"</pre>";
+                    }
+
+                    $singleUser = Users::find_user_by_id(1);
+                    while($fh_user = mysqli_fetch_assoc($singleUser)){
+                        echo "<pre>",print_r($fh_user),"</pre>";
                     }
                 ?>
             </h1>
