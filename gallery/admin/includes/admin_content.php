@@ -6,13 +6,18 @@
             <h1 class="page-header">
                 Admin
                 <small>Subheading</small>
-                <?php 
+                <?php
                     //var_dump($database->connection);
-					$sql="SELECT * FROM `users` ";
+					/*$sql="SELECT * FROM `users` ";
 					$result = $database->query($sql);
 					$database->confirmQuery($result);
-					$fetch = mysqli_fetch_assoc($result);
+					$fetch = mysqli_fetch_assoc($result); */
 					// var_dump($fetch);
+                    $users = new Users();
+                    $allUsers = $users->find_all_users();
+                    while($fh_users = mysqli_fetch_assoc($allUsers)){
+                        //echo "<pre>",print_r($fh_users),"</pre>";
+                    }
                 ?>
             </h1>
             <ol class="breadcrumb">

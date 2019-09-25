@@ -1,4 +1,4 @@
-<?php 
+<?php
 class Database{
 	public $connection;
 
@@ -26,11 +26,11 @@ class Database{
 
 	public function query($sql){
 		//$result = mysqli_query($this->connection,$sql);
-		
+
 		$result = $this->connection->query($sql);
 		return $result;
 	}
-	
+
 	public function confirmQuery($result){
 		if(!$result){
 			die($this->connection->error);
@@ -40,7 +40,7 @@ class Database{
 	public function escape_string($string){
 		return $this->connection->real_escape_string($this->connection,trim($string));
 	}
-	
+
 	public function the_insert_id(){
 		return $this->connection->insert_id;
 	}
