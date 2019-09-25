@@ -20,10 +20,19 @@
                     }
 
                     $singleUser = Users::find_user_by_id(1);
-                    while($fh_user = mysqli_fetch_assoc($singleUser)){
-                        echo "<pre>",print_r($fh_user),"</pre>";
-                    }
-                ?>
+                    $user = new Users();
+                    $user->id = $singleUser["id"];
+                    $user->username = $singleUser["username"];
+                    $user->password = $singleUser["password"];
+                    $user->first_name = $singleUser["first_name"];
+                    $user->last_name = $singleUser["last_name"];
+
+                    var_dump($user->id);
+                    var_dump($user->username);
+                    var_dump($user->password);
+                    var_dump($user->first_name);
+                    var_dump($user->last_name);
+                 ?>
             </h1>
             <ol class="breadcrumb">
                 <li>
