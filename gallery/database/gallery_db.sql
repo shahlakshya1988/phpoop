@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 23, 2019 at 05:27 AM
+-- Generation Time: Sep 25, 2019 at 06:03 AM
 -- Server version: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -19,8 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `gallery_db`
 --
-CREATE DATABASE IF NOT EXISTS `gallery_db` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `gallery_db`;
 
 -- --------------------------------------------------------
 
@@ -36,6 +34,14 @@ CREATE TABLE `users` (
   `first_name` varchar(255) NOT NULL,
   `last_name` varchar(255) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `password`, `first_name`, `last_name`) VALUES
+(1, 'rico', '123', 'John', 'Doe'),
+(2, 'edwin', '123', 'Edwin', 'Diaz');
 
 --
 -- Indexes for dumped tables
@@ -55,7 +61,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
