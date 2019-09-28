@@ -1,6 +1,6 @@
 <?php 
 spl_autoload_register(function($class){
-	var_dump($class);
+	//var_dump($class);
 	$class = strtolower($class);
 	$path = __DIR__.DIRECTORY_SEPARATOR;
 	$path = "includes".DIRECTORY_SEPARATOR."{$class}.php";
@@ -13,4 +13,9 @@ spl_autoload_register(function($class){
 		die("This file {$path}, is missing");
 	}
 });
+
+function redirect($url){
+	header("Location: {$url}");
+	die();
+}
 ?>
