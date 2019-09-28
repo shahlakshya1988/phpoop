@@ -59,5 +59,10 @@ class Users{
        //echo "<br><br><br>";
         return array_key_exists($the_attribute, $object_vars);
     }
+
+    public static function verify_user($username,$password){
+        $result_set_array = self::find_this_query("SELECT * FROM `users` where `username` = '{$username}' and `password` = `{$password}` LIMIT 1");
+        return !empty($result_set_array) ? array_shift($result_set_array) : false;
+    }
 }
 ?>

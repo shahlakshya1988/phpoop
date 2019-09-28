@@ -8,6 +8,9 @@ if(isset($_POST["submit"])){
     $username = $database->escape_string(trim($_POST["username"]));
     $password = $database->escape_string(trim($_POST["password"]));
     if(!empty($username) && !empty($password)){
+        // method to verify the user with username and password 
+        $user_found = Users::verify_user($username,$password);
+        // method to verify the user with username and password 
         if($user_found){
             $session->login($user_found);
         }else{
