@@ -14,6 +14,7 @@ if (isset($_POST["submit"])) {
         // method to verify the user with username and password 
         if ($user_found) {
             $session->login($user_found);
+            redirect("index.php");
         } else {
             $the_message = "Your Password And Username are incorrect";
         }
