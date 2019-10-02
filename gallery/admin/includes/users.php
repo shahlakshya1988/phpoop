@@ -92,6 +92,15 @@ class Users{
         $database->query($sql);
        return (mysqli_affected_rows($database->connection))? true : false;
         
+    } // update method ends 
+
+    public function delete(){
+        global $database;
+        $id = $database->escape_string($this->id);
+        $sql="DELETE FROM `users` where `id` = '{$id}' LIMIT 1";
+        $database->query($sql);
+        return (mysqli_affected_rows($database->connection)) ? true : false;
     }
+
 } // user class ends 
 ?>
