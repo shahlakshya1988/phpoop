@@ -64,5 +64,21 @@ class Users{
         $result_set_array = self::find_this_query("SELECT * FROM `users` where `username` = '{$username}' and `password` = '{$password}' LIMIT 1");
         return !empty($result_set_array) ? array_shift($result_set_array) : false;
     }
+
+    public function create(){
+        global $database;
+        $username = $database->escape_string($this->username);
+        $password = $database->escape_string($this->password);
+        $first_name = $database->escape_string($this->first_name);
+        $last_name = $database->escape_string($this->last_name);
+        $sql="INSERT INTO `users` (`username`,`password`,`first_name`,`last_name`) values ('{$username}','{$password}','{$first_name}','{$last_name}')";
+        if($database->query($sql)){
+            $this->id = $database->the_insert_id();
+            return true;
+        }else{
+            return false;
+        }
+
+    }
 }
 ?>

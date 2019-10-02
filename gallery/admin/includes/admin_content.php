@@ -6,6 +6,15 @@
             <h1 class="page-header">
                 Admin
                 <small>Subheading</small>
+                <?php
+                $user = new Users();
+                $user->username="someusername";
+                $user->password="123";
+                $user->first_name="somefirstname";
+                $user->last_name="somelastname";
+                $user->create();
+                var_dump($user->id); 
+                ?>
             </h1>
             <ol class="breadcrumb">
                 <li>
