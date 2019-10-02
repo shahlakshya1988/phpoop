@@ -80,5 +80,18 @@ class Users{
         }
 
     }
-}
+    public function update(){
+        global $database;
+        $username = $database->escape_string($this->username);
+        $password = $database->escape_string($this->password);
+        $first_name = $database->escape_string($this->first_name);
+        $last_name = $database->escape_string($this->last_name);
+        $id = $database->escape_string($this->id);
+
+        $sql="UPDATE `users` SET `username` = '{$username}', `password` = '{$password}',`first_name` = '{$first_name}',`last_name` = '{$last_name}' where `id` = '{$id}' LIMIT 1";
+        $database->query($sql);
+       return (mysqli_affected_rows($database->connection))? true : false;
+        
+    }
+} // user class ends 
 ?>

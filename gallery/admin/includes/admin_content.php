@@ -7,13 +7,20 @@
                 Admin
                 <small>Subheading</small>
                 <?php
-                $user = new Users();
+                /*$user = new Users();
                 $user->username="someusername";
                 $user->password="123";
                 $user->first_name="somefirstname";
                 $user->last_name="somelastname";
                 $user->create();
-                var_dump($user->id); 
+                var_dump($user->id); */
+                $user = Users::find_user_by_id(1);
+                var_dump($user);
+                $user->last_name = "Doe";
+                $user->update();
+                $user1 = Users::find_user_by_id(1);
+                var_dump($user1);
+
                 ?>
             </h1>
             <ol class="breadcrumb">
