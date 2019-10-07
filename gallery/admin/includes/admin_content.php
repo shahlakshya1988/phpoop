@@ -27,19 +27,19 @@
                  echo "<br>";
                 $user1 = Users::find_user_by_id(9);
                 var_dump($user1); */
-               /* $user = new Users();
-                $user->username="mynewusername";
+               $user = new Users();
+                $user->username="mynewusername12";
                 $user->password = "123";
-                $user->first_name = "newuserfirstname";
-                $user->last_name = "newuserlastname";
-                $user->save(); */
+                $user->first_name = "newuserfirstname12";
+                $user->last_name = "newuserlastname12";
+                $user->save(); 
                 //$user = new Users();
-              /*  $user = Users::find_user_by_id(3);
+                /*$user = Users::find_user_by_id(3);
                 var_dump($user);
-                $user->username = "myupdateduser";
+                $user->username = "myupdateduser12";
                 $user->save();
                 $user = Users::find_user_by_id(3);
-                var_dump($user); */
+                var_dump($user);*/
                 ?>
             </h1>
             <ol class="breadcrumb">

@@ -1,5 +1,6 @@
 <?php
 class Users{
+    protected static $db_table = "users";
     public $id;
     public $username;
     public $first_name;
@@ -10,7 +11,7 @@ class Users{
       /*  global $database;
         $result_set = $database->query("SELECT * FROM `users`");
         return $result_set; */
-        return self::find_this_query("SELECT * FROM `users`");
+        return self::find_this_query("SELECT * FROM `".self::$db_table."`");
     }
 
     public static function find_user_by_id($user_id){
@@ -18,7 +19,7 @@ class Users{
         $user_id = $database->escape_string($user_id);
         $result_set = $database->query("SELECT * FROM `users` where `id` = '{$user_id}'");
         return $result_set; */
-       $result_set_array = self::find_this_query("SELECT * FROM `users` where `id` = '{$user_id}'");
+       $result_set_array = self::find_this_query("SELECT * FROM `".self::$db_table."` where `id` = '{$user_id}'");
       /* if(!empty($result_set_array)){
        return array_shift($result_set_array);
       }else{
@@ -61,7 +62,7 @@ class Users{
     }
 
     public static function verify_user($username,$password){
-        $result_set_array = self::find_this_query("SELECT * FROM `users` where `username` = '{$username}' and `password` = '{$password}' LIMIT 1");
+        $result_set_array = self::find_this_query("SELECT * FROM `".self::$db_table."` where `username` = '{$username}' and `password` = '{$password}' LIMIT 1");
         return !empty($result_set_array) ? array_shift($result_set_array) : false;
     }
 
@@ -75,7 +76,7 @@ class Users{
         $password = $database->escape_string($this->password);
         $first_name = $database->escape_string($this->first_name);
         $last_name = $database->escape_string($this->last_name);
-        $sql="INSERT INTO `users` (`username`,`password`,`first_name`,`last_name`) values ('{$username}','{$password}','{$first_name}','{$last_name}')";
+        $sql="INSERT INTO `".self::$db_table."` (`username`,`password`,`first_name`,`last_name`) values ('{$username}','{$password}','{$first_name}','{$last_name}')";
         if($database->query($sql)){
             $this->id = $database->the_insert_id();
             return true;
@@ -92,7 +93,7 @@ class Users{
         $last_name = $database->escape_string($this->last_name);
         $id = $database->escape_string($this->id);
 
-        $sql="UPDATE `users` SET `username` = '{$username}', `password` = '{$password}',`first_name` = '{$first_name}',`last_name` = '{$last_name}' where `id` = '{$id}' LIMIT 1";
+        $sql="UPDATE `".self::$db_table."` SET `username` = '{$username}', `password` = '{$password}',`first_name` = '{$first_name}',`last_name` = '{$last_name}' where `id` = '{$id}' LIMIT 1";
         $database->query($sql);
        return (mysqli_affected_rows($database->connection))? true : false;
         
@@ -101,7 +102,7 @@ class Users{
     public function delete(){
         global $database;
         $id = $database->escape_string($this->id);
-        $sql="DELETE FROM `users` where `id` = '{$id}' LIMIT 1";
+        $sql="DELETE FROM `".self::$db_table."` where `id` = '{$id}' LIMIT 1";
         $database->query($sql);
         return (mysqli_affected_rows($database->connection)) ? true : false;
     }
