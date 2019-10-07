@@ -65,6 +65,10 @@ class Users{
         return !empty($result_set_array) ? array_shift($result_set_array) : false;
     }
 
+    public function save(){
+        return (isset($this->id)) ? $this->update() : $this->create();
+    }
+
     public function create(){
         global $database;
         $username = $database->escape_string($this->username);

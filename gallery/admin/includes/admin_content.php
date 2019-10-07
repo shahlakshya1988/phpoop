@@ -20,13 +20,26 @@
                 $user->update();
                 $user1 = Users::find_user_by_id(1);
                 var_dump($user1); */
-                $user = Users::find_user_by_id(9);
+              /*  $user = Users::find_user_by_id(9);
                 var_dump($user);
                 echo "<br>";
                 var_dump($user->delete());
                  echo "<br>";
                 $user1 = Users::find_user_by_id(9);
-                var_dump($user1);
+                var_dump($user1); */
+               /* $user = new Users();
+                $user->username="mynewusername";
+                $user->password = "123";
+                $user->first_name = "newuserfirstname";
+                $user->last_name = "newuserlastname";
+                $user->save(); */
+                //$user = new Users();
+              /*  $user = Users::find_user_by_id(3);
+                var_dump($user);
+                $user->username = "myupdateduser";
+                $user->save();
+                $user = Users::find_user_by_id(3);
+                var_dump($user); */
                 ?>
             </h1>
             <ol class="breadcrumb">
