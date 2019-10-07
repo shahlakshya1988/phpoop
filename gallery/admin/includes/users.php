@@ -60,6 +60,9 @@ class Users{
        //echo "<br><br><br>";
         return array_key_exists($the_attribute, $object_vars);
     }
+    protected function properties(){
+        return get_object_vars($this);
+    }
 
     public static function verify_user($username,$password){
         $result_set_array = self::find_this_query("SELECT * FROM `".self::$db_table."` where `username` = '{$username}' and `password` = '{$password}' LIMIT 1");
@@ -71,12 +74,15 @@ class Users{
     }
 
     public function create(){
+       $properties = $this->properties();
+       //var_dump($properties);
+       //var_dump(implode(",", array_keys($properties)));
         global $database;
         $username = $database->escape_string($this->username);
         $password = $database->escape_string($this->password);
         $first_name = $database->escape_string($this->first_name);
         $last_name = $database->escape_string($this->last_name);
-        $sql="INSERT INTO `".self::$db_table."` (`username`,`password`,`first_name`,`last_name`) values ('{$username}','{$password}','{$first_name}','{$last_name}')";
+        $sql="INSERT INTO `".self::$db_table."` (".implode(",", array_keys($properties)).") values ('{$username}','{$password}','{$first_name}','{$last_name}')";
         if($database->query($sql)){
             $this->id = $database->the_insert_id();
             return true;
