@@ -82,8 +82,10 @@ class Users{
         $password = $database->escape_string($this->password);
         $first_name = $database->escape_string($this->first_name);
         $last_name = $database->escape_string($this->last_name);
-        $sql="INSERT INTO `".self::$db_table."` (".implode(",", array_keys($properties)).") values ( Null,'{$username}','{$password}','{$first_name}','{$last_name}')";
-
+        $sql="INSERT INTO `".self::$db_table."` (".implode(",", array_keys($properties)).") values ('". implode("','",array_values($properties))  ."')";
+        /*echo "<br>";
+        echo $sql;
+        echo "<br>"; */
         if($database->query($sql)){
             $this->id = $database->the_insert_id();
             return true;
