@@ -33,6 +33,7 @@
                 $user->first_name = "newuserfirstname12";
                 $user->last_name = "newuserlastname12";
                 $user->save(); 
+                //var_dump($user);
                 //$user = new Users();
                 /*$user = Users::find_user_by_id(3);
                 var_dump($user);

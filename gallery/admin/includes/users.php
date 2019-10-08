@@ -65,8 +65,9 @@ class Users{
     protected function properties(){
       //  return get_object_vars($this);
         $properties = array();
-        foreach (self::$db_table_fields as $db_field => $value) {
-            if(property_exists(this, $db_field)){
+       // var_dump(self::$db_table_fields);
+        foreach (self::$db_table_fields as $db_field) {
+            if(property_exists($this, $db_field)){
                 $properties[$db_field]=$this->$db_field;
             }
         }
@@ -79,10 +80,12 @@ class Users{
     }
 
     public function save(){
+
         return (isset($this->id)) ? $this->update() : $this->create();
     }
 
     public function create(){
+
        $properties = $this->properties();
        //var_dump($properties);
        //var_dump(implode(",", array_keys($properties)));
@@ -92,7 +95,7 @@ class Users{
         $first_name = $database->escape_string($this->first_name);
         $last_name = $database->escape_string($this->last_name);
         $sql="INSERT INTO `".self::$db_table."` (".implode(",", array_keys($properties)).") values ('". implode("','",array_values($properties))  ."')";
-        /*echo "<br>";
+       /* echo "<br>";
         echo $sql;
         echo "<br>"; */
         if($database->query($sql)){
