@@ -80,7 +80,7 @@ class Users{
     }
 
     public function save(){
-
+       // var_dump(isset($this->id));
         return (isset($this->id)) ? $this->update() : $this->create();
     }
 
@@ -114,7 +114,20 @@ class Users{
         $last_name = $database->escape_string($this->last_name);
         $id = $database->escape_string($this->id);
 
-        $sql="UPDATE `".self::$db_table."` SET `username` = '{$username}', `password` = '{$password}',`first_name` = '{$first_name}',`last_name` = '{$last_name}' where `id` = '{$id}' LIMIT 1";
+        $properties = $this->properties();
+       // var_dump($properties);
+        $property_pairs= array();
+        foreach($properties as $key => $value){
+
+            $property_pairs[] = "{$key} = '{$value}'";
+        }
+       // var_dump($property_pairs);
+       
+
+        $sql="UPDATE `".self::$db_table."` SET ";
+        $sql.=implode(", ",$property_pairs);
+        $sql.=" where `id` = '{$id}' LIMIT 1 ";
+       // echo $sql;
         $database->query($sql);
        return (mysqli_affected_rows($database->connection))? true : false;
         
