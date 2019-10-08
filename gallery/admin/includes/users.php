@@ -6,6 +6,8 @@ class Users{
     public $first_name;
     public $last_name;
     public $password;
+
+    protected static $db_table_fields = array("username","password","first_name","last_name");
     
     public static function find_all_users(){
       /*  global $database;
@@ -61,7 +63,14 @@ class Users{
         return array_key_exists($the_attribute, $object_vars);
     }
     protected function properties(){
-        return get_object_vars($this);
+      //  return get_object_vars($this);
+        $properties = array();
+        foreach (self::$db_table_fields as $db_field => $value) {
+            if(property_exists(this, $db_field)){
+                $properties[$db_field]=$this->$db_field;
+            }
+        }
+        return $properties;
     }
 
     public static function verify_user($username,$password){
@@ -115,6 +124,9 @@ class Users{
         $database->query($sql);
         return (mysqli_affected_rows($database->connection)) ? true : false;
     }
+
+
+
 
 } // user class ends 
 ?>
