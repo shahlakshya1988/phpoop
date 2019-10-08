@@ -74,6 +74,15 @@ class Users{
         return $properties;
     }
 
+    protected function clean_properties(){
+        global $database;
+        $clean_properties = array();
+        foreach($this->properties() as $key => $value){
+            $clean_properties[$key]= $database->escape_string($value);
+        }
+        return $clean_properties;
+    }
+
     public static function verify_user($username,$password){
         $result_set_array = self::find_this_query("SELECT * FROM `".self::$db_table."` where `username` = '{$username}' and `password` = '{$password}' LIMIT 1");
         return !empty($result_set_array) ? array_shift($result_set_array) : false;
@@ -86,7 +95,7 @@ class Users{
 
     public function create(){
 
-       $properties = $this->properties();
+       $properties = $this->clean_properties();
        //var_dump($properties);
        //var_dump(implode(",", array_keys($properties)));
         global $database;
@@ -108,13 +117,13 @@ class Users{
     }
     public function update(){
         global $database;
-        $username = $database->escape_string($this->username);
-        $password = $database->escape_string($this->password);
-        $first_name = $database->escape_string($this->first_name);
-        $last_name = $database->escape_string($this->last_name);
+       // $username = $database->escape_string($this->username);
+       // $password = $database->escape_string($this->password);
+       // $first_name = $database->escape_string($this->first_name);
+       // $last_name = $database->escape_string($this->last_name);
         $id = $database->escape_string($this->id);
 
-        $properties = $this->properties();
+        $properties = $this->clean_properties();
        // var_dump($properties);
         $property_pairs= array();
         foreach($properties as $key => $value){
