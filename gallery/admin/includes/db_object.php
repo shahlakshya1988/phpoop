@@ -4,7 +4,7 @@ class Db_object{
 	  /*  global $database;
 	    $result_set = $database->query("SELECT * FROM `users`");
 	    return $result_set; */
-	    return self::find_this_query("SELECT * FROM `".self::$db_table."`");
+	    return static::find_this_query("SELECT * FROM `".static::$db_table."`");
 	}
 
 	public static function find_by_id($user_id){
@@ -12,7 +12,7 @@ class Db_object{
 	    $user_id = $database->escape_string($user_id);
 	    $result_set = $database->query("SELECT * FROM `users` where `id` = '{$user_id}'");
 	    return $result_set; */
-	   $result_set_array = self::find_this_query("SELECT * FROM `".self::$db_table."` where `id` = '{$user_id}'");
+	   $result_set_array = static::find_this_query("SELECT * FROM `".static::$db_table."` where `id` = '{$user_id}'");
 	  /* if(!empty($result_set_array)){
 	   return array_shift($result_set_array);
 	  }else{
@@ -26,14 +26,15 @@ class Db_object{
 	    $result_set = $database->query($sql);
 	    $object_array = array();
 	    while($fh_row = mysqli_fetch_assoc($result_set)){
-	        $object_array[]= self::instantiation($fh_row);
+	        $object_array[]= static::instantiation($fh_row);
 	    }
 
 	    return $object_array;
 	}
 	public static function instantiation($the_record){
 	   // var_dump($the_record);
-	    $thisObject = new self;
+	   $calling_class = get_called_class();
+	   $thisObject = new $calling_class;
 	    /*$thisObject->id = $singleUser["id"];
 	    $thisObject->username = $singleUser["username"];
 	    $thisObject->password = $singleUser["password"];
@@ -57,8 +58,8 @@ class Db_object{
 	protected function properties(){
 	  //  return get_object_vars($this);
 	    $properties = array();
-	   // var_dump(self::$db_table_fields);
-	    foreach (self::$db_table_fields as $db_field) {
+	   // var_dump(static::$db_table_fields);
+	    foreach (static::$db_table_fields as $db_field) {
 	        if(property_exists($this, $db_field)){
 	            $properties[$db_field]=$this->$db_field;
 	        }

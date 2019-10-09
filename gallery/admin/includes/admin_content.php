@@ -48,6 +48,9 @@
                 $user->save();
                 $user = Users::find_by_id(9);
                 var_dump($user); */
+
+                $user = Users::find_all();
+                var_dump($user);
                 ?>
             </h1>
             <ol class="breadcrumb">
