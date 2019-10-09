@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Oct 08, 2019 at 10:28 AM
+-- Generation Time: Oct 09, 2019 at 04:02 PM
 -- Server version: 5.7.26
 -- PHP Version: 7.2.18
 
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `photos` (
   `title` varchar(255) NOT NULL,
   `description` text NOT NULL,
   `filename` varchar(255) NOT NULL,
-  `filetype` varchar(255) NOT NULL,
+  `type` varchar(255) NOT NULL,
   `size` int(255) NOT NULL,
   PRIMARY KEY (`photo_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;

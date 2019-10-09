@@ -14,18 +14,18 @@
                 $user->last_name="somelastname";
                 $user->create();
                 var_dump($user->id); */
-                /*$user = Users::find_user_by_id(1);
+                /*$user = Users::find_by_id(1);
                 var_dump($user);
                 $user->last_name = "Doe";
                 $user->update();
-                $user1 = Users::find_user_by_id(1);
+                $user1 = Users::find_by_id(1);
                 var_dump($user1); */
-              /*  $user = Users::find_user_by_id(9);
+              /*  $user = Users::find_by_id(9);
                 var_dump($user);
                 echo "<br>";
                 var_dump($user->delete());
                  echo "<br>";
-                $user1 = Users::find_user_by_id(9);
+                $user1 = Users::find_by_id(9);
                 var_dump($user1); */
                $user = new Users();
                 $user->username="mynewusername12";
@@ -35,18 +35,18 @@
                 $user->save(); 
                 //var_dump($user);
                 //$user = new Users();
-                /*$user = Users::find_user_by_id(3);
+                /*$user = Users::find_by_id(3);
                 var_dump($user);
                 $user->username = "myupdateduser12";
                 $user->save();
-                $user = Users::find_user_by_id(3);
+                $user = Users::find_by_id(3);
                 var_dump($user);*/
 
-                $user = Users::find_user_by_id(9);
+                $user = Users::find_by_id(9);
                 var_dump($user);
                 $user->username = "myupdateduser12";
                 $user->save();
-                $user = Users::find_user_by_id(9);
+                $user = Users::find_by_id(9);
                 var_dump($user);
                 ?>
             </h1>
