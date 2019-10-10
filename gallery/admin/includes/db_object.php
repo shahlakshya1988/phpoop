@@ -8,12 +8,12 @@ class Db_object{
 	    return static::find_by_query("SELECT * FROM `".static::$db_table."`");
 	}
 
-	public static function find_by_id($user_id){
+	public static function find_by_id($id){
 	   /* global $database;
-	    $user_id = $database->escape_string($user_id);
-	    $result_set = $database->query("SELECT * FROM `users` where `id` = '{$user_id}'");
+	    $id = $database->escape_string($id);
+	    $result_set = $database->query("SELECT * FROM `users` where `id` = '{$id}'");
 	    return $result_set; */
-	   $result_set_array = static::find_by_query("SELECT * FROM `".static::$db_table."` where `id` = '{$user_id}'");
+	   $result_set_array = static::find_by_query("SELECT * FROM `".static::$db_table."` where `id` = '{$id}'");
 	  /* if(!empty($result_set_array)){
 	   return array_shift($result_set_array);
 	  }else{
@@ -135,7 +135,11 @@ class Db_object{
 	    $database->query($sql);
 	    return (mysqli_affected_rows($database->connection)) ? true : false;
 	}
-
+	public function save(){
+        // var_dump(isset($this->id));
+         return (isset($this->id)) ? $this->update() : $this->create();
+     }
+  
 
 }
 ?>

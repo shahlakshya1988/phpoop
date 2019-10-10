@@ -46,13 +46,13 @@ if(!$session->is_signed_in()){
                                     <td><?php // echo $photo->picture_path(); ?>
                                     <img src="<?php echo $photo->picture_path(); ?>" alt="<?php echo $photo->title ?>"> 
                                     <br>
-                                    <a href="delete_photo.php?id=<?php echo $photo->photo_id; ?>">Delete</a>
+                                    <a href="delete_photo.php?id=<?php echo $photo->id; ?>">Delete</a>
                                     <a href="">Edit</a>
                                     <a href="">View</a>
                                     <!-- <br> -->
                                     <!-- <img src="https://placehold.it/62X62" alt="<?php echo $photo->title ?>">     -->
                                 </td>
-                                    <td><?php echo $photo->photo_id ?></td>
+                                    <td><?php echo $photo->id ?></td>
                                     <td><?php echo $photo->filename ?></td>
                                     <td><?php echo $photo->title ?></td>
                                     <td><?php echo $photo->size ?></td>

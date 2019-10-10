@@ -13,7 +13,10 @@ if(empty($_GET) || !isset($_GET["id"]) || trim($_GET["id"]) == ""){
 $photo_id=$_GET["id"];
 $photo = Photo::find_by_id($photo_id);
 if($photo){
-    $photo->delete_photo($photo_id);
+    //var_dump($photo);
+    unlink($photo->upload_dir.DS.$photo->filename);
+    //die();
+    $photo->delete($photo_id);
 }else{
     redirect("photos.php");
 }

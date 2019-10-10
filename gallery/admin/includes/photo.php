@@ -1,7 +1,7 @@
 <?php 
 class Photo extends Db_object{
 	protected static $db_table = "photos";
-	public $photo_id;
+	public $id;
 	public $title;
 	public $description;
 	public $filename;
@@ -47,7 +47,7 @@ class Photo extends Db_object{
 		return $this->upload_dir.DS.$this->filename;
 	}
 	public function save(){
-		if($this->photo_id){
+		if($this->id){
 			$this->update();
 		}else{
 			if(!empty($this->errors)){
