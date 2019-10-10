@@ -1,5 +1,10 @@
 <?php include("includes/header.php"); ?>
-
+<?php 
+if(!$session->is_signed_in()){
+    redirect("login.php");
+    die();
+}
+?>
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
        <?php  include "includes/top_nav.php"; ?>
@@ -33,13 +38,23 @@
                           </tr>
                       </thead>
                       <tbody>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
+                          <?php 
+                            $photos = Photo::find_all();
+                            // var_dump($photos);
+                            foreach($photos as $photo){ ?>
+                                <tr>
+                                    <td><?php echo $photo->upload_dir ?>
+                                    <br>
+                                    <img src="https://placehold.it/62X62" alt="<?php echo $photo->title ?>">    
+                                </td>
+                                    <td><?php echo $photo->photo_id ?></td>
+                                    <td><?php echo $photo->filename ?></td>
+                                    <td><?php echo $photo->title ?></td>
+                                    <td><?php echo $photo->size ?></td>
+                                </tr>
+                           <?php }
+                          ?>
+                          
                       </tbody>
                      
                   </table>
