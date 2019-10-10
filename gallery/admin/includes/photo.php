@@ -23,7 +23,26 @@ class Photo extends Db_object{
 		UPLOAD_ERR_EXTENSION=>" A PHP extension stopped the file upload. PHP does not provide a way to ascertain which extension caused the file upload to stop"
 	);
 
-	public $custome_errors = array();
+	public $errors = array(); // this is custom error message
+
+	/**
+	 * THIS IS PASSING THE $_FILES AS AN ARGUMENT
+	 */
+	public function set_file($file){
+		if(empty($file) || !$file || !is_array($file)){
+			$this->errors[]="There was no file uploaded here";
+			return false;
+		}else if($file["error"]){
+			$this->errors[]=$this->upload_errors[$file["error"]];
+			return false;
+		}else{
+			$this->filename = basename($file["name"]);
+			$this->size = $file["size"];
+			$this->tmp_path = $file["tmp_name"];
+			$this->type = $file["type"];
+		}
+		
+	} //public function set_file($file)
 	
 } 
 ?>
