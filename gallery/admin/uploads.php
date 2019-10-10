@@ -1,4 +1,10 @@
 <?php include("includes/header.php"); ?>
+<?php 
+if(!$session->is_signed_in()){
+    redirect("login.php");
+    die();
+}
+?>
 
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -17,7 +23,7 @@
            <div class="row">
                <div class="col-lg-12">
                    <h1 class="page-header">
-                       Photos
+                       Uploads
                        <small>Subheading</small>
                    </h1>
                    <ol class="breadcrumb">
@@ -28,6 +34,19 @@
                            <i class="fa fa-file"></i> Blank Page
                        </li>
                    </ol>
+               </div>
+               <div class="col-lg-6">
+                <form action="" method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <input type="text" name="title" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="file" name="file_upload" id="file_upload" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Upload" name="upload" class="btn btn-success">
+                    </div>
+                </form>
                </div>
            </div>
            <!-- /.row -->
