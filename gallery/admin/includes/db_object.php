@@ -77,10 +77,7 @@ class Db_object{
 	    return $clean_properties;
 	}
 
-	public function save(){
-	   // var_dump(isset($this->id));
-	    return (isset($this->id)) ? $this->update() : $this->create();
-	}
+	
 
 	public function create(){
 
