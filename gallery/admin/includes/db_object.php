@@ -1,10 +1,11 @@
 <?php 
 class Db_object{
+	 
 	public static function find_all(){
 	  /*  global $database;
 	    $result_set = $database->query("SELECT * FROM `users`");
 	    return $result_set; */
-	    return static::find_this_query("SELECT * FROM `".static::$db_table."`");
+	    return static::find_by_query("SELECT * FROM `".static::$db_table."`");
 	}
 
 	public static function find_by_id($user_id){
@@ -12,7 +13,7 @@ class Db_object{
 	    $user_id = $database->escape_string($user_id);
 	    $result_set = $database->query("SELECT * FROM `users` where `id` = '{$user_id}'");
 	    return $result_set; */
-	   $result_set_array = static::find_this_query("SELECT * FROM `".static::$db_table."` where `id` = '{$user_id}'");
+	   $result_set_array = static::find_by_query("SELECT * FROM `".static::$db_table."` where `id` = '{$user_id}'");
 	  /* if(!empty($result_set_array)){
 	   return array_shift($result_set_array);
 	  }else{
@@ -21,7 +22,7 @@ class Db_object{
 	 return !empty($result_set_array) ? array_shift($result_set_array) : false;
 	}
 
-	public static function find_this_query($sql){
+	public static function find_by_query($sql){
 	    global $database;
 	    $result_set = $database->query($sql);
 	    $object_array = array();
@@ -33,7 +34,7 @@ class Db_object{
 	}
 	public static function instantiation($the_record){
 	   // var_dump($the_record);
-	   $calling_class = get_called_class();
+	  $calling_class = get_called_class();
 	   $thisObject = new $calling_class;
 	    /*$thisObject->id = $singleUser["id"];
 	    $thisObject->username = $singleUser["username"];
@@ -75,6 +76,69 @@ class Db_object{
 	    }
 	    return $clean_properties;
 	}
+
+	public function save(){
+	   // var_dump(isset($this->id));
+	    return (isset($this->id)) ? $this->update() : $this->create();
+	}
+
+	public function create(){
+
+	   $properties = $this->clean_properties();
+	   //var_dump($properties);
+	   //var_dump(implode(",", array_keys($properties)));
+	    global $database;
+	    $username = $database->escape_string($this->username);
+	    $password = $database->escape_string($this->password);
+	    $first_name = $database->escape_string($this->first_name);
+	    $last_name = $database->escape_string($this->last_name);
+	    $sql="INSERT INTO `".static::$db_table."` (".implode(",", array_keys($properties)).") values ('". implode("','",array_values($properties))  ."')";
+	   /* echo "<br>";
+	    echo $sql;
+	    echo "<br>"; */
+	    if($database->query($sql)){
+	        $this->id = $database->the_insert_id();
+	        return true;
+	    }else{
+	        return false;
+	    }
+
+	}
+	public function update(){
+	    global $database;
+	   // $username = $database->escape_string($this->username);
+	   // $password = $database->escape_string($this->password);
+	   // $first_name = $database->escape_string($this->first_name);
+	   // $last_name = $database->escape_string($this->last_name);
+	    $id = $database->escape_string($this->id);
+
+	    $properties = $this->clean_properties();
+	   // var_dump($properties);
+	    $property_pairs= array();
+	    foreach($properties as $key => $value){
+
+	        $property_pairs[] = "{$key} = '{$value}'";
+	    }
+	   // var_dump($property_pairs);
+	   
+
+	    $sql="UPDATE `".static::$db_table."` SET ";
+	    $sql.=implode(", ",$property_pairs);
+	    $sql.=" where `id` = '{$id}' LIMIT 1 ";
+	   // echo $sql;
+	    $database->query($sql);
+	   return (mysqli_affected_rows($database->connection))? true : false;
+	    
+	} // update method ends 
+
+	public function delete(){
+	    global $database;
+	    $id = $database->escape_string($this->id);
+	    $sql="DELETE FROM `".static::$db_table."` where `id` = '{$id}' LIMIT 1";
+	    $database->query($sql);
+	    return (mysqli_affected_rows($database->connection)) ? true : false;
+	}
+
 
 }
 ?>
