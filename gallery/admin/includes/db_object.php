@@ -24,7 +24,7 @@ class Db_object{
 
 	public static function find_by_query($sql){
 	    global $database;
-	    $result_set = $database->query($sql);
+		$result_set = $database->query($sql);
 	    $object_array = array();
 	    while($fh_row = mysqli_fetch_assoc($result_set)){
 	        $object_array[]= static::instantiation($fh_row);
