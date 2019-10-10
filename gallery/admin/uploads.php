@@ -4,6 +4,19 @@ if(!$session->is_signed_in()){
     redirect("login.php");
     die();
 }
+$message = "";
+if(isset($_POST["upload"])){
+    $title = $_POST["title"];
+    $file = $_FILES["file_upload"];
+    $photo = new Photo();
+    $photo->title = $title;
+    $photo->set_file($file);
+    if($photo->save()){
+        $message = "Photo Uploaded Successfully";
+    }else{
+        $message = join("<br>",$photo->errors);
+    }
+}
 ?>
 
     <!-- Navigation -->
@@ -36,6 +49,7 @@ if(!$session->is_signed_in()){
                    </ol>
                </div>
                <div class="col-lg-6">
+                   <?=$message; ?>
                 <form action="" method="POST" enctype="multipart/form-data">
                     <div class="form-group">
                         <input type="text" name="title" class="form-control">
