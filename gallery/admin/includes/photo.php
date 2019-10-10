@@ -75,6 +75,17 @@ class Photo extends Db_object{
 			
 		}
 	}
+
+	public function delete_photo(){
+		
+		if($this->delete()){
+			return (unlink(SITE_ROOT.DS."admin".DS.$this->upload_dir.DS.$this->filename)) ?  true :  false;
+		}else{
+			return false;
+		}
+		
+		
+	}
 	
 } 
 ?>

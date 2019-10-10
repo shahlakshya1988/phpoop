@@ -14,9 +14,11 @@ $photo_id=$_GET["id"];
 $photo = Photo::find_by_id($photo_id);
 if($photo){
     //var_dump($photo);
-    unlink($photo->upload_dir.DS.$photo->filename);
+    
     //die();
-    $photo->delete($photo_id);
+    if($photo->delete_photo()){
+        
+    }
 }else{
     redirect("photos.php");
 }
