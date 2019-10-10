@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Oct 09, 2019 at 04:02 PM
+-- Generation Time: Oct 10, 2019 at 09:46 AM
 -- Server version: 5.7.26
 -- PHP Version: 7.2.18
 
@@ -30,14 +30,22 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `photos`;
 CREATE TABLE IF NOT EXISTS `photos` (
-  `photo_id` int(255) NOT NULL AUTO_INCREMENT,
+  `id` int(255) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
   `description` text NOT NULL,
   `filename` varchar(255) NOT NULL,
   `type` varchar(255) NOT NULL,
   `size` int(255) NOT NULL,
-  PRIMARY KEY (`photo_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `photos`
+--
+
+INSERT INTO `photos` (`id`, `title`, `description`, `filename`, `type`, `size`) VALUES
+(1, 'title', '', 'images-1.jpg', 'image/jpeg', 28947),
+(2, 'title', '', 'images_2.jpg', 'image/jpeg', 18578);
 
 -- --------------------------------------------------------
 
