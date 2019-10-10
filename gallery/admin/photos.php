@@ -43,9 +43,10 @@ if(!$session->is_signed_in()){
                             // var_dump($photos);
                             foreach($photos as $photo){ ?>
                                 <tr>
-                                    <td><?php echo $photo->upload_dir ?>
-                                    <br>
-                                    <img src="https://placehold.it/62X62" alt="<?php echo $photo->title ?>">    
+                                    <td><?php // echo $photo->picture_path(); ?>
+                                    <img src="<?php echo $photo->picture_path(); ?>" alt="<?php echo $photo->title ?>"> 
+                                    <!-- <br> -->
+                                    <!-- <img src="https://placehold.it/62X62" alt="<?php echo $photo->title ?>">     -->
                                 </td>
                                     <td><?php echo $photo->photo_id ?></td>
                                     <td><?php echo $photo->filename ?></td>
