@@ -51,6 +51,17 @@
 
                 $user = Users::find_all();
                 var_dump($user);
+                echo "<br><br><br>";
+                $photos = Photo::find_all();
+                var_dump($photos);
+                echo "<br><br><br>";
+                $photo = new Photo();
+                $photo->title = "New Photo";
+                $photo->size = "200";
+                $photo->description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi ullam fugiat ducimus, beatae accusamus officiis, nulla adipisci quam perferendis qui cum cupiditate veniam ipsa recusandae dignissimos. Magnam iure dolorem ullam.";
+                $photo->filename="myphoto.jpg";
+                $photo->type="JPG";
+                $photo->save();
                 ?>
             </h1>
             <ol class="breadcrumb">

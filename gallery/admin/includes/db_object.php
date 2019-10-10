@@ -1,6 +1,6 @@
 <?php 
 class Db_object{
-	 
+
 	public static function find_all(){
 	  /*  global $database;
 	    $result_set = $database->query("SELECT * FROM `users`");
@@ -88,10 +88,10 @@ class Db_object{
 	   //var_dump($properties);
 	   //var_dump(implode(",", array_keys($properties)));
 	    global $database;
-	    $username = $database->escape_string($this->username);
+	   /* $username = $database->escape_string($this->username);
 	    $password = $database->escape_string($this->password);
 	    $first_name = $database->escape_string($this->first_name);
-	    $last_name = $database->escape_string($this->last_name);
+	    $last_name = $database->escape_string($this->last_name);*/
 	    $sql="INSERT INTO `".static::$db_table."` (".implode(",", array_keys($properties)).") values ('". implode("','",array_values($properties))  ."')";
 	   /* echo "<br>";
 	    echo $sql;
