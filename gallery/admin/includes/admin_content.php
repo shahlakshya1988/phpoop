@@ -49,7 +49,7 @@
                 $user = Users::find_by_id(9);
                 var_dump($user); */
 
-                $user = Users::find_all();
+               /* $user = Users::find_all();
                 var_dump($user);
                 echo "<br><br><br>";
                 $photos = Photo::find_all();
@@ -61,7 +61,7 @@
                 $photo->description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi ullam fugiat ducimus, beatae accusamus officiis, nulla adipisci quam perferendis qui cum cupiditate veniam ipsa recusandae dignissimos. Magnam iure dolorem ullam.";
                 $photo->filename="myphoto.jpg";
                 $photo->type="JPG";
-                $photo->save();
+                $photo->save(); */
                 ?>
             </h1>
             <ol class="breadcrumb">
