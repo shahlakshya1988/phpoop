@@ -7,17 +7,25 @@ if(!$session->is_signed_in()){
 if(isset($_GET["id"]) && !empty($_GET["id"])){
 	$id = trim($_GET["id"]);
 	$photo = Photo::find_by_id($id);
-	var_dump($photo);
+	//var_dump($photo);
 }else{
 	redirect("photos.php");
 	die();
 }
+
 if(isset($_POST["update"])){
-	echo "<pre>",print_r($_REQUEST),"</PRE>";
+	//echo "<pre>",print_r($_REQUEST),"</PRE>";
 	$title = $_POST["title"];
 	$caption = $_POST["caption"];
 	$alternate_text = $_POST["alternate_text"];
 	$description = $_POST["description"];
+	$photo->title = $title;
+	$photo->caption = $caption;
+	$photo->alternate_text = $alternate_text;
+	$photo->description = $description;
+	$photo->save();
+	redirect("photos.php");
+	die();
 } // isset($_POST["update"])
 
 ?>
@@ -47,19 +55,19 @@ if(isset($_POST["update"])){
 				 <div class="col-md-7">
 						<div class="form-group">
 							<label for="title">Title</label>
-							<input type="text" name="title" class="form-control" />
+							<input type="text" name="title" class="form-control" value="<?php echo $photo->title; ?>" />
 						</div>
 						<div class="form-group">
 						<label for="caption">Caption</label>
-							<input type="text" name="caption" id="caption" class="form-control" />
+							<input type="text" name="caption" id="caption" class="form-control" value="<?php echo $photo->caption; ?>" />
 						</div>
 						<div class="form-group">
 							<label for="alternate_text">Alternate Text</label>
-							<input type="text" name="alternate_text" id="alternate_text" class="form-control" />
+							<input type="text" name="alternate_text" id="alternate_text" class="form-control" value="<?php echo $photo->alternate_text; ?>" />
 						</div>
 						<div class="form-group">
 							<label for="description">Description</label>
-							<textarea name="description" class="form-control" id="description"></textarea>
+							<textarea name="description" class="form-control" id="description"><?php echo $photo->description; ?></textarea>
 						</div>
 					 </div>
 					 <!-- -->

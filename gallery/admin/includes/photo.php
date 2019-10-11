@@ -7,7 +7,9 @@ class Photo extends Db_object{
 	public $filename;
 	public $type;
 	public $size;
-	protected static $db_table_fields = array("title","description","filename","type","size");
+	public $caption;
+	public $alternate_text;
+	protected static $db_table_fields = array("title","description","filename","type","size","caption","alternate_text");
 
 	public $tmp_path; // this path will be used to move images
 	public $upload_dir = "images"; // this dir is used to store images
