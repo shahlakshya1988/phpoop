@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Oct 10, 2019 at 09:46 AM
+-- Generation Time: Oct 11, 2019 at 05:10 AM
 -- Server version: 5.7.26
 -- PHP Version: 7.2.18
 
@@ -34,18 +34,19 @@ CREATE TABLE IF NOT EXISTS `photos` (
   `title` varchar(255) NOT NULL,
   `description` text NOT NULL,
   `filename` varchar(255) NOT NULL,
+  `caption` varchar(255) NOT NULL,
+  `alternate_text` varchar(255) NOT NULL,
   `type` varchar(255) NOT NULL,
   `size` int(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `photos`
 --
 
-INSERT INTO `photos` (`id`, `title`, `description`, `filename`, `type`, `size`) VALUES
-(1, 'title', '', 'images-1.jpg', 'image/jpeg', 28947),
-(2, 'title', '', 'images_2.jpg', 'image/jpeg', 18578);
+INSERT INTO `photos` (`id`, `title`, `description`, `filename`, `caption`, `alternate_text`, `type`, `size`) VALUES
+(8, 'someupload', '', '_large_image_1.jpg', '', '', 'image/jpeg', 479843);
 
 -- --------------------------------------------------------
 

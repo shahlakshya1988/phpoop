@@ -4,8 +4,20 @@ if(!$session->is_signed_in()){
     redirect("login.php");
     die();
 }
+if(isset($_GET["id"]) && !empty($_GET["id"])){
+	$id = trim($_GET["id"]);
+	$photo = Photo::find_by_id($id);
+	var_dump($photo);
+}else{
+	redirect("photos.php");
+	die();
+}
 if(isset($_POST["update"])){
 	echo "<pre>",print_r($_REQUEST),"</PRE>";
+	$title = $_POST["title"];
+	$caption = $_POST["caption"];
+	$alternate_text = $_POST["alternate_text"];
+	$description = $_POST["description"];
 } // isset($_POST["update"])
 
 ?>
@@ -42,8 +54,8 @@ if(isset($_POST["update"])){
 							<input type="text" name="caption" id="caption" class="form-control" />
 						</div>
 						<div class="form-group">
-							<label for="alternatetext">Alternate Text</label>
-							<input type="text" name="alternatetext" id="alternatetext" class="form-control" />
+							<label for="alternate_text">Alternate Text</label>
+							<input type="text" name="alternate_text" id="alternate_text" class="form-control" />
 						</div>
 						<div class="form-group">
 							<label for="description">Description</label>
