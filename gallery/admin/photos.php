@@ -44,7 +44,7 @@ if(!$session->is_signed_in()){
                             foreach($photos as $photo){ ?>
                                 <tr>
                                     <td><?php // echo $photo->picture_path(); ?>
-                                    <img src="<?php echo $photo->picture_path(); ?>" alt="<?php echo $photo->title ?>"> 
+                                    <img src="<?php echo $photo->picture_path(); ?>" alt="<?php echo $photo->title ?>" width="150px"> 
                                     <br>
                                     <a href="delete_photo.php?id=<?php echo $photo->id; ?>">Delete</a>
                                     <a href="edit_photo.php?id=<?php echo $photo->id; ?>">Edit</a>
