@@ -1,4 +1,4 @@
-<?php include("includes/header.php"); ?>
+<?php error_reporting(0); include("includes/header.php"); ?>
 <?php 
 if(!$session->is_signed_in()){
     redirect("login.php");
@@ -45,7 +45,7 @@ if(!$session->is_signed_in()){
                                 <tr>
                                     <td> <?php echo $user->id; ?>                                    
                                 </td>
-                                    <td><?php echo $user->id ?></td>
+                                    <td> <img src="<?php echo $user->image_path_and_placeholder(); ?>" alt="<?php echo $user->username ?>" class="admin-user-thumbnail"> </td>
                                     <td><?php echo $user->username ?> <br>
                                     <div class="action_links">
                                         <a href="delete_user.php?id=<?php echo $user->id; ?>">Delete</a>
