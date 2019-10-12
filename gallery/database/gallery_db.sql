@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Oct 11, 2019 at 05:10 AM
+-- Generation Time: Oct 12, 2019 at 07:11 AM
 -- Server version: 5.7.26
 -- PHP Version: 7.2.18
 
@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS `photos` (
 --
 
 INSERT INTO `photos` (`id`, `title`, `description`, `filename`, `caption`, `alternate_text`, `type`, `size`) VALUES
-(8, 'someupload', '', '_large_image_1.jpg', '', '', 'image/jpeg', 479843);
+(8, 'title', 'my description', '_large_image_1.jpg', 'Caption', 'Alternate Text', 'image/jpeg', 479843);
 
 -- --------------------------------------------------------
 
@@ -61,6 +61,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `password` varchar(255) NOT NULL,
   `first_name` varchar(255) NOT NULL,
   `last_name` varchar(255) NOT NULL,
+  `user_image` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
 
@@ -68,11 +69,11 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`, `first_name`, `last_name`) VALUES
-(1, 'rico', '123', 'John', 'Doe'),
-(2, 'edwin', '123', 'Edwin', 'Diaz'),
-(9, 'myupdateduser12', '123', 'newuserfirstname12', 'newuserlastname12'),
-(26, 'mynewusername12', '123', 'newuserfirstname12', 'newuserlastname12');
+INSERT INTO `users` (`id`, `username`, `password`, `first_name`, `last_name`, `user_image`) VALUES
+(1, 'rico', '123', 'John', 'Doe', 'user.jpg'),
+(2, 'edwin', '123', 'Edwin', 'Diaz', ''),
+(9, 'myupdateduser12', '123', 'newuserfirstname12', 'newuserlastname12', ''),
+(26, 'mynewusername12', '123', 'newuserfirstname12', 'newuserlastname12', '');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

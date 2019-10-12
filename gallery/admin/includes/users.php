@@ -7,12 +7,12 @@ class Users extends Db_object{
     public $last_name;
     public $password;
     public $user_image;
-    public $upload_directory;
+    public $upload_directory="images";
     public $image_placeholder = "https://via.placeholder.com/400&text=Image";
 
    
 
-    protected static $db_table_fields = array("username","password","first_name","last_name");
+    protected static $db_table_fields = array("username","password","first_name","last_name","user_image");
 
 
     public function image_path_and_placeholder(){
