@@ -7,6 +7,11 @@ if(!$session->is_signed_in()){
 
 
 if(isset($_POST["add_user"])){
+    $username = trim($_POST["username"]);
+    $first_name = trim($_POST["first_name"]);
+    $last_name = trim($_POST["last_name"]);
+    $password = trim($_POST["password"]);
+
 	//echo "<pre>",print_r($_REQUEST),"</PRE>";
 
 } // isset($_POST["add_user"])
@@ -31,7 +36,7 @@ if(isset($_POST["add_user"])){
                    <h1 class="page-header">
                        Add User
                    </h1>
-                   <div class="">
+                   <div class="pull-right">
                        <a href="users.php" class="btn btn-primary">View Users</a>
                    </div>
                </div>
@@ -56,11 +61,9 @@ if(isset($_POST["add_user"])){
 							<input type="text" name="last_name" id="last_name" class="form-control"  />
                         </div>
                         <div class="info-box-footer clearfix">
-                                <div class="info-box-delete pull-left">
-                                    <a  href="delete_photo.php?id=<?php echo $photo->id; ?>" class="btn btn-danger btn-lg ">Delete</a>   
-                                </div>
+                               
                                 <div class="info-box-update pull-right ">
-                                    <input type="submit" name="update" value="Update" class="btn btn-primary btn-lg ">
+                                    <input type="submit" name="add_user" value="Add User" class="btn btn-primary btn-lg ">
                                 </div>   
                               </div>
 					 </div>
