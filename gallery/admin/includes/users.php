@@ -32,6 +32,13 @@ class Users extends Db_object{
      }
   
 
+     public function delete_user(){
+        if($this->delete()){
+            return (unlink(SITE_ROOT.DS."admin".DS.$this->upload_directory.DS.$this->user_image)) ?  true :  false;
+        }else{
+            return false;
+        }
+     }
 
 
 } // user class ends 
