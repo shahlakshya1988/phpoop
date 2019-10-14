@@ -1,12 +1,15 @@
-<?php error_reporting(0); include("includes/header.php"); ?>
+<?php include("includes/header.php"); ?>
 <?php 
 if(!$session->is_signed_in()){
     redirect("login.php");
     die();
 }
 
-$user = Users();
+$user = new Users();
 if(isset($_POST["add_user"])){
+  echo "<pre>",print_r($_POST),"</pre>";
+  echo "<pre>",print_r($_FILES),"</pre>";
+
     $username = trim($_POST["username"]);
     $first_name = trim($_POST["first_name"]);
     $last_name = trim($_POST["last_name"]);
@@ -15,6 +18,9 @@ if(isset($_POST["add_user"])){
     $user->first_name = $first_name;
     $user->last_name = $last_name;
     $user->password = $password;
+    $user->set_file($_FILES["user_image"]);
+    //$user->save_user_and_image();
+    var_dump($user->save_user_and_image());
 
 	//echo "<pre>",print_r($_REQUEST),"</PRE>";
 
@@ -45,7 +51,7 @@ if(isset($_POST["add_user"])){
                    </div>
                </div>
                
-                 <form name="add_user" action="" enctype="multipart/formdata" method="POST">
+                 <form name="add_user" action="" enctype="multipart/form-data" method="POST">
 				 <div class="col-md-7">
           <div class="form-group">
             <label for="user_image">User Image</label>
