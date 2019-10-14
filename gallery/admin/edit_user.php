@@ -4,9 +4,13 @@ if(!$session->is_signed_in()){
     redirect("login.php");
     die();
 }
-
-$user = new Users();
-if(isset($_POST["add_user"])){
+if(empty(trim($_GET["id"]))){
+    redirect("users.php");
+    die();
+}
+$user = Users::find_by_id($_GET["id"]);
+var_dump($user);
+if(isset($_POST["edit_user"])){
   //echo "<pre>",print_r($_POST),"</pre>";
   //echo "<pre>",print_r($_FILES),"</pre>";
 
@@ -20,7 +24,7 @@ if(isset($_POST["add_user"])){
     $user->password = $password;
     $user->set_file($_FILES["user_image"]);
     //$user->save_user_and_image();
-    $user->save_user_and_image()
+    var_dump($user->save_user_and_image());
     redirect("users.php");
 
 	//echo "<pre>",print_r($_REQUEST),"</PRE>";
@@ -60,25 +64,25 @@ if(isset($_POST["add_user"])){
           </div>
 						<div class="form-group">
 							<label for="username">Username</label>
-							<input type="text" name="username" class="form-control"  />
+							<input type="text" name="username" class="form-control" value="<?php echo $user->username; ?>" />
                         </div>
                         <div class="form-group">
 							<label for="password">Password</label>
-							<input type="password" name="password" id="password" class="form-control"  />
+							<input type="password" name="password" id="password" class="form-control"  value="<?php echo $user->password; ?>" />
 						</div>
 
 						<div class="form-group">
 						<label for="first_name">First Name</label>
-							<input type="text" name="first_name" id="first_name" class="form-control"  />
+							<input type="text" name="first_name" id="first_name" class="form-control"  value="<?php echo $user->first_name; ?>" />
 						</div>
 						<div class="form-group">
 							<label for="last_name">Last Name</label>
-							<input type="text" name="last_name" id="last_name" class="form-control"  />
+							<input type="text" name="last_name" id="last_name" class="form-control" value="<?php echo $user->last_name; ?>"  />
                         </div>
                         <div class="info-box-footer clearfix">
 
                                 <div class="info-box-update pull-right ">
-                                    <input type="submit" name="add_user" value="Add User" class="btn btn-primary btn-lg ">
+                                    <input type="submit" name="edit_user" value="Edit User" class="btn btn-primary btn-lg ">
                                 </div>
                               </div>
 					 </div>

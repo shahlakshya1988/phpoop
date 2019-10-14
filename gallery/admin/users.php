@@ -1,5 +1,5 @@
 <?php error_reporting(0); include("includes/header.php"); ?>
-<?php 
+<?php
 if(!$session->is_signed_in()){
     redirect("login.php");
     die();
@@ -23,10 +23,10 @@ if(!$session->is_signed_in()){
                <div class="col-lg-12">
                    <h1 class="page-header">
                        Users
-                       
+
                    </h1>
-                   <div> 
-                       <a href="add_user.php" class="btn btn-primary">Add User</a> 
+                   <div>
+                       <a href="add_user.php" class="btn btn-primary">Add User</a>
                    </div>
                </div>
                <div class="col-lg-12">
@@ -41,28 +41,28 @@ if(!$session->is_signed_in()){
                           </tr>
                       </thead>
                       <tbody>
-                          <?php 
+                          <?php
                             $users = Users::find_all();
                            // var_dump($users);
                             foreach($users as $user){ ?>
                                 <tr>
-                                    <td> <?php echo $user->id; ?>                                    
+                                    <td> <?php echo $user->id; ?>
                                 </td>
                                     <td> <img src="<?php echo $user->image_path_and_placeholder(); ?>" alt="<?php echo $user->username ?>" class="admin-user-thumbnail"> </td>
                                     <td><?php echo $user->username ?> <br>
                                     <div class="action_links">
                                         <a href="delete_user.php?id=<?php echo $user->id; ?>">Delete</a>
                                         <a href="edit_user.php?id=<?php echo $user->id; ?>">Edit</a>
-                                        <a href="">View</a>
+                                    <!--    <a href="">View</a> -->
                                     </div> </td>
                                     <td><?php echo $user->first_name ?></td>
                                     <td><?php echo $user->last_name ?></td>
                                 </tr>
                            <?php }
                           ?>
-                          
+
                       </tbody>
-                     
+
                   </table>
                </div>
            </div>
