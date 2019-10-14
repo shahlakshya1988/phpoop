@@ -5,12 +5,16 @@ if(!$session->is_signed_in()){
     die();
 }
 
-
+$user = Users();
 if(isset($_POST["add_user"])){
     $username = trim($_POST["username"]);
     $first_name = trim($_POST["first_name"]);
     $last_name = trim($_POST["last_name"]);
     $password = trim($_POST["password"]);
+    $user->username = $username;
+    $user->first_name = $first_name;
+    $user->last_name = $last_name;
+    $user->password = $password;
 
 	//echo "<pre>",print_r($_REQUEST),"</PRE>";
 
@@ -43,6 +47,10 @@ if(isset($_POST["add_user"])){
                
                  <form name="add_user" action="" enctype="multipart/formdata" method="POST">
 				 <div class="col-md-7">
+          <div class="form-group">
+            <label for="user_image">User Image</label>
+            <input type="file" name="user_image" id="user_image" class="form-control" >
+          </div>
 						<div class="form-group">
 							<label for="username">Username</label>
 							<input type="text" name="username" class="form-control"  />
