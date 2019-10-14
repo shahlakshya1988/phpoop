@@ -7,11 +7,11 @@ class Users extends Db_object{
     public $last_name;
     public $password;
     public $user_image;
-   // public $upload_directory="images";
+   // public $upload_dir="images";
     public $image_placeholder = "https://via.placeholder.com/400&text=Image";
 
     public $tmp_path; // this path will be used to move images
-    public $upload_directory = "images"; // this dir is used to store images
+    public $upload_dir = "images"; // this dir is used to store images
 
     public $upload_errors = array(
         UPLOAD_ERR_OK => "There is no error",
@@ -51,7 +51,7 @@ class Users extends Db_object{
 
 
     public function image_path_and_placeholder(){
-        return (empty($this->user_image)) ? $this->image_placeholder : $this->upload_directory.DS.$this->user_image;
+        return (empty($this->user_image)) ? $this->image_placeholder : $this->upload_dir.DS.$this->user_image;
     }
     
   
@@ -69,7 +69,7 @@ class Users extends Db_object{
 
      public function delete_user(){
         if($this->delete()){
-            return (unlink(SITE_ROOT.DS."admin".DS.$this->upload_directory.DS.$this->user_image)) ?  true :  false;
+            return (unlink(SITE_ROOT.DS."admin".DS.$this->upload_dir.DS.$this->user_image)) ?  true :  false;
         }else{
             return false;
         }
@@ -87,7 +87,7 @@ class Users extends Db_object{
                 $this->errors[]="The file is not available";
                 return false;
             }
-            $target_path = SITE_ROOT.DS."admin".DS.$this->upload_directory.DS.$this->user_image;
+            $target_path = SITE_ROOT.DS."admin".DS.$this->upload_dir.DS.$this->user_image;
             if(file_exists($target_path)){
                 $this->errors[]="The {$this->user_image}, already exists";
                 return false;
