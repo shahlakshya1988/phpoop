@@ -157,7 +157,7 @@ $allcomments = Comment::find_the_comments($photo->id);
                         </a>
                         <div class="media-body">
                             <h4 class="media-heading"><?php echo $comment->author; ?>
-                                <small>August 25, 2014 at 9:30 PM</small>
+                                <small><?php echo $comment->datetime; ?></small>
                             </h4>
                             <?php echo $comment->body; ?>
                         </div>
