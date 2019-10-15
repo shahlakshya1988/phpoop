@@ -50,7 +50,6 @@ if(!$session->is_signed_in()){
                                     <td><?php echo $comment->author ?> <br>
                                         <div class="action_links">
                                             <a href="delete_comment.php?id=<?php echo $comment->id; ?>">Delete</a>
-                                            <a href="edit_comment.php?id=<?php echo $comment->id; ?>">Edit</a>
                                         <!--    <a href="">View</a> -->
                                         </div>
                                     </td>
