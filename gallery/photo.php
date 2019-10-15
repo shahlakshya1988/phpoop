@@ -6,10 +6,17 @@ if(empty($_GET["id"])){
     die();
 }
 $photo = Photo::find_by_id($_GET["id"]);
-var_dump($photo);
+//var_dump($photo);
 if(isset($_POST["submit"])){
-    $author = $_POST["author"];
-    $body = $_POST["body"];
+    $author = trim($_POST["author"]);
+    $body = trim($_POST["body"]);
+    $comment = Comment::create_comment($photo->id,$author,$body);
+    if($comment){
+        $comment->save();
+    }
+    redirect("photo.php?id={$photo->id}");
+    die();
+
 
 }
 ?><!DOCTYPE html>
