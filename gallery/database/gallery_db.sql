@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Oct 15, 2019 at 05:02 AM
+-- Generation Time: Oct 15, 2019 at 12:26 PM
 -- Server version: 5.7.26
 -- PHP Version: 7.2.18
 
@@ -34,9 +34,20 @@ CREATE TABLE IF NOT EXISTS `comments` (
   `photo_id` int(11) NOT NULL,
   `author` varchar(255) NOT NULL,
   `body` longtext NOT NULL,
+  `datetime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `photo_id` (`photo_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `comments`
+--
+
+INSERT INTO `comments` (`id`, `photo_id`, `author`, `body`, `datetime`) VALUES
+(1, 8, 'my name', 'some datra', '2019-10-15 14:46:20'),
+(2, 8, 'my1 name', 'some datra 1', '2019-10-15 14:46:20'),
+(4, 9, 'comment 1', 'comment body 1', '2019-10-15 17:54:21'),
+(5, 9, 'comment 2', 'comment body 2', '2019-10-15 17:54:29');
 
 -- --------------------------------------------------------
 
@@ -55,14 +66,16 @@ CREATE TABLE IF NOT EXISTS `photos` (
   `type` varchar(255) NOT NULL,
   `size` int(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `photos`
 --
 
 INSERT INTO `photos` (`id`, `title`, `description`, `filename`, `caption`, `alternate_text`, `type`, `size`) VALUES
-(8, 'title', 'my description', '_large_image_1.jpg', 'Caption', 'Alternate Text', 'image/jpeg', 479843);
+(8, 'title', 'my description', '_large_image_1.jpg', 'Caption', 'Alternate Text', 'image/jpeg', 479843),
+(9, 'Photo 1', '', 'image-1.jpg', '', '', 'image/jpeg', 328747),
+(10, 'Photo 2', '', 'images-12.jpg', '', '', 'image/jpeg', 18540);
 
 -- --------------------------------------------------------
 

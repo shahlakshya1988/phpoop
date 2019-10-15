@@ -35,6 +35,7 @@ if(!$session->is_signed_in()){
                               <th>File Name</th>
                               <th>Title</th>
                               <th>Size</th>
+                              <th>Comments</th>
                           </tr>
                       </thead>
                       <tbody>
@@ -57,6 +58,8 @@ if(!$session->is_signed_in()){
                                     <td><?php echo $photo->filename ?></td>
                                     <td><?php echo $photo->title ?></td>
                                     <td><?php echo $photo->size ?></td>
+                                    <td><a class="btn btn-info btn-lg" href="comments_photo.php?id=<?php echo $photo->id; ?>"><?php $comments = Comment::find_the_comments($photo->id);
+                                    echo count($comments); ?></a></td>
                                 </tr>
                            <?php }
                           ?>
