@@ -1,4 +1,10 @@
-<!DOCTYPE html>
+<?php
+if(isset($_POST["submit"])){
+    $author = $_POST["author"];
+    $body = $_POST["body"];
+
+}
+?><!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -104,11 +110,16 @@
                 <!-- Comments Form -->
                 <div class="well">
                     <h4>Leave a Comment:</h4>
-                    <form role="form">
+                    <form role="form" method="POST" name="add_comment">
                         <div class="form-group">
-                            <textarea class="form-control" rows="3"></textarea>
+                            <label for="author">Enter Your Name</label>
+                            <input type="text" name="author" id="author" class="form-control">
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <div class="form-group">
+                            <label for="body">Enter Message</label>
+                            <textarea class="form-control" rows="3" name="body" id="body"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" name="submit">Submit</button>
                     </form>
                 </div>
 
