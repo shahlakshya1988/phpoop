@@ -33,7 +33,7 @@ if(isset($_POST["edit_user"])){
     }
     
    
-    if(emtpy($_FILES["user_image"])){
+    if(empty($_FILES["user_image"])){
         $user->save();
     }else{
         $user->set_file($_FILES["user_image"]);
@@ -102,7 +102,7 @@ if(isset($_POST["edit_user"])){
 							<input type="text" name="last_name" id="last_name" class="form-control" value="<?php echo $user->last_name; ?>"  />
                         </div>
                         <div class="info-box-footer clearfix">
-
+                                <a href="delete_user.php?id=<?php echo $user->id ?>" class="btn btn-danger">Delete User</a>
                                 <div class="info-box-update pull-right ">
                                     <input type="submit" name="edit_user" value="Edit User" class="btn btn-primary btn-lg ">
                                 </div>
