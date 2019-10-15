@@ -1,4 +1,12 @@
 <?php
+require_once __DIR__.DIRECTORY_SEPARATOR."admin".DIRECTORY_SEPARATOR."includes".DIRECTORY_SEPARATOR."init.php";
+$_GET["id"] = 8; // this is temp
+if(empty($_GET["id"])){
+    redirect("index.php");
+    die();
+}
+$photo = Photo::find_by_id($_GET["id"]);
+var_dump($photo);
 if(isset($_POST["submit"])){
     $author = $_POST["author"];
     $body = $_POST["body"];
@@ -77,7 +85,7 @@ if(isset($_POST["submit"])){
                 <!-- Blog Post -->
 
                 <!-- Title -->
-                <h1>Blog Post Title</h1>
+                <h1><?=$photo->title; ?></h1>
 
                 <!-- Author -->
                 <p class="lead">
