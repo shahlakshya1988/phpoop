@@ -9,7 +9,7 @@ if(empty(trim($_GET["id"]))){
     die();
 }
 $user = Users::find_by_id($_GET["id"]);
-var_dump($user);
+//var_dump($user);
 if(isset($_POST["edit_user"])){
   //echo "<pre>",print_r($_POST),"</pre>";
   //echo "<pre>",print_r($_FILES),"</pre>";
@@ -18,13 +18,26 @@ if(isset($_POST["edit_user"])){
     $first_name = trim($_POST["first_name"]);
     $last_name = trim($_POST["last_name"]);
     $password = trim($_POST["password"]);
-    $user->username = $username;
-    $user->first_name = $first_name;
-    $user->last_name = $last_name;
-    $user->password = $password;
+    if(!empty($username)){
+        $user->username = $username;
+    }
+    if(!empty($password)){
+        $user->password = $password;
+    }
+    if(!empty($first_name)){
+        $user->first_name = $first_name;
+    }
+
+    if(!empty($last_name)){
+        $user->last_name = $last_name;
+    }
+    
+   
+    
+    
     $user->set_file($_FILES["user_image"]);
     //$user->save_user_and_image();
-    var_dump($user->save_user_and_image());
+    $user->save_user_and_image();
     // die();
     redirect("users.php");
 
