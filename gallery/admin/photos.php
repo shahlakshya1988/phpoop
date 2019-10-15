@@ -49,6 +49,7 @@ if(!$session->is_signed_in()){
                                     <a href="delete_photo.php?id=<?php echo $photo->id; ?>">Delete</a>
                                     <a href="edit_photo.php?id=<?php echo $photo->id; ?>">Edit</a>
                                     <a href="../photo.php?id=<?php echo $photo->id; ?>">View</a>
+                                    <a href="comments_photo.php?id=<?php echo $photo->id; ?>">View Comments</a>
                                     <!-- <br> -->
                                     <!-- <img src="https://placehold.it/62X62" alt="<?php echo $photo->title ?>">     -->
                                 </td>

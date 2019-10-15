@@ -8,6 +8,9 @@ if(empty($_GET["id"])){
     redirect("photos.php");
     die();
 }
+$photo_id = trim($_GET["id"]);
+//var_dump($photo_id);
+$comments = Comment::find_the_comments($photo_id);
 ?>
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -30,7 +33,7 @@ if(empty($_GET["id"])){
 
                    </h1>
                    <div>
-                       <a href="add_user.php" class="btn btn-primary">Add User</a>
+                       <a href="photos.php" class="btn btn-primary">View Photos</a>
                    </div>
                </div>
                <div class="col-lg-12">
@@ -45,7 +48,7 @@ if(empty($_GET["id"])){
                       <tbody>
                           <?php
 
-                            $comments = Comment::find_all();
+                            // $comments = Comment::find_all();
                           //var_dump($comments);
                             foreach($comments as $comment){ ?>
                                 <tr>

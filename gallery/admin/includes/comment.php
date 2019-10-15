@@ -24,6 +24,7 @@ class Comment extends Db_object{
         global $database;
         $photo_id = $database->escape_string($photo_id);
         $sql="SELECT * FROM ".self::$db_table." where `photo_id` = '{$photo_id}' order by `id` ASC ";
+        // echo $sql;
         return self::find_by_query($sql);
     }
 
