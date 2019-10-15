@@ -7,18 +7,25 @@ if(empty($_GET["id"])){
 }
 $photo = Photo::find_by_id($_GET["id"]);
 //var_dump($photo);
+$message = "";
 if(isset($_POST["submit"])){
     $author = trim($_POST["author"]);
     $body = trim($_POST["body"]);
     $comment = Comment::create_comment($photo->id,$author,$body);
-    if($comment){
-        $comment->save();
+    if($comment && $comment->save()){
+        redirect("photo.php?id={$photo->id}");
+        die();
+    }else{
+        $message="There was a problems";
     }
+
     redirect("photo.php?id={$photo->id}");
     die();
 
 
 }
+$allcomments = Comment::find_the_comments($photo->id);
+//var_dump($allcomments);
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -143,7 +150,20 @@ if(isset($_POST["submit"])){
                 <!-- Posted Comments -->
 
                 <!-- Comment -->
-                <div class="media">
+                <?php foreach($allcomments as $comment){ ?>
+                    <div class="media">
+                        <a class="pull-left" href="#">
+                            <img class="media-object" src="http://placehold.it/64x64" alt="">
+                        </a>
+                        <div class="media-body">
+                            <h4 class="media-heading"><?php echo $comment->author; ?>
+                                <small>August 25, 2014 at 9:30 PM</small>
+                            </h4>
+                            <?php echo $comment->body; ?>
+                        </div>
+                    </div>
+                <?php } ?>
+                <?php /* <div class="media">
                     <a class="pull-left" href="#">
                         <img class="media-object" src="http://placehold.it/64x64" alt="">
                     </a>
@@ -179,7 +199,7 @@ if(isset($_POST["submit"])){
                         </div>
                         <!-- End Nested Comment -->
                     </div>
-                </div>
+                </div> */ ?>
 
             </div>
 

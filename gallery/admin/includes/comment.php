@@ -1,6 +1,6 @@
 <?php
 class Comment extends Db_object{
-    protected static $db_table = "commnets";
+    protected static $db_table = "comments";
     protected static $db_table_fields = array("photo_id","author","body");
     public $id;
     public $photo_id;
@@ -19,7 +19,7 @@ class Comment extends Db_object{
         }
     } //function create_comment
 
-    public static function find_the_comments($photo_id){
+    public static function find_the_comments($photo_id = 0){
         global $database;
         $photo_id = $database->escape_string($photo_id);
         $sql="SELECT * FROM ".self::$db_table." where `photo_id` = '{$photo_id}' order by `id` ASC ";

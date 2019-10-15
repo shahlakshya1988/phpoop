@@ -1,4 +1,4 @@
-<?php 
+<?php
 class Db_object{
     public $image_placeholder = "https://via.placeholder.com/400&text=Image";
 
@@ -34,7 +34,7 @@ class Db_object{
             $this->tmp_path = $file["tmp_name"];
             $this->type = $file["type"];
         }
-        
+
     } //public function set_file($file)
 
 
@@ -82,7 +82,7 @@ class Db_object{
 	        if($thisObject->has_the_attr($the_attribute)){
 	                $thisObject->$the_attribute = $value;
 	        }
-	       
+
 	    }
 	    return $thisObject;
 	}
@@ -114,7 +114,7 @@ class Db_object{
 	    return $clean_properties;
 	}
 
-	
+
 
 	public function create(){
 
@@ -127,7 +127,7 @@ class Db_object{
 	    $first_name = $database->escape_string($this->first_name);
 	    $last_name = $database->escape_string($this->last_name);*/
 	    $sql="INSERT INTO `".static::$db_table."` (".implode(",", array_keys($properties)).") values ('". implode("','",array_values($properties))  ."')";
-	   /* echo "<br>";
+	    /*echo "<br>";
 	    echo $sql;
 	    echo "<br>"; */
 	    if($database->query($sql)){
@@ -154,7 +154,7 @@ class Db_object{
 	        $property_pairs[] = "{$key} = '{$value}'";
 	    }
 	   // var_dump($property_pairs);
-	   
+
 
 	    $sql="UPDATE `".static::$db_table."` SET ";
 	    $sql.=implode(", ",$property_pairs);
@@ -162,8 +162,8 @@ class Db_object{
 	   // echo $sql;
 	    $database->query($sql);
 	   return (mysqli_affected_rows($database->connection))? true : false;
-	    
-	} // update method ends 
+
+	} // update method ends
 
 	public function delete(){
 	    global $database;
@@ -176,7 +176,7 @@ class Db_object{
         // var_dump(isset($this->id));
          return (isset($this->id)) ? $this->update() : $this->create();
      }
-  
+
 
 }
 ?>
