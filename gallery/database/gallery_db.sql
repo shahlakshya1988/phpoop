@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Oct 12, 2019 at 07:11 AM
+-- Generation Time: Oct 15, 2019 at 05:02 AM
 -- Server version: 5.7.26
 -- PHP Version: 7.2.18
 
@@ -21,6 +21,22 @@ SET time_zone = "+00:00";
 --
 -- Database: `gallery_db`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `comments`
+--
+
+DROP TABLE IF EXISTS `comments`;
+CREATE TABLE IF NOT EXISTS `comments` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `photo_id` int(11) NOT NULL,
+  `author` varchar(255) NOT NULL,
+  `body` longtext NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `photo_id` (`photo_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -63,7 +79,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `last_name` varchar(255) NOT NULL,
   `user_image` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
@@ -72,8 +88,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 INSERT INTO `users` (`id`, `username`, `password`, `first_name`, `last_name`, `user_image`) VALUES
 (1, 'rico', '123', 'John', 'Doe', 'user.jpg'),
 (2, 'edwin', '123', 'Edwin', 'Diaz', ''),
-(9, 'myupdateduser12', '123', 'newuserfirstname12', 'newuserlastname12', ''),
-(26, 'mynewusername12', '123', 'newuserfirstname12', 'newuserlastname12', '');
+(27, 'rico23', '123', 'ricofirstname', 'ricolastname', 'vehicledetails_img_4-12.png');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
