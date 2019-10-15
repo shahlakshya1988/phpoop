@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__.DIRECTORY_SEPARATOR."admin".DIRECTORY_SEPARATOR."includes".DIRECTORY_SEPARATOR."init.php";
-$_GET["id"] = 8; // this is temp
+//$_GET["id"] = 8; // this is temp
 if(empty($_GET["id"])){
     redirect("index.php");
     die();

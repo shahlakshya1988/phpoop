@@ -1,5 +1,5 @@
 <?php include("includes/header.php"); ?>
-<?php 
+<?php
 if(!$session->is_signed_in()){
     redirect("login.php");
     die();
@@ -38,17 +38,17 @@ if(!$session->is_signed_in()){
                           </tr>
                       </thead>
                       <tbody>
-                          <?php 
+                          <?php
                             $photos = Photo::find_all();
                             // var_dump($photos);
                             foreach($photos as $photo){ ?>
                                 <tr>
                                     <td><?php // echo $photo->picture_path(); ?>
-                                    <img src="<?php echo $photo->picture_path(); ?>" alt="<?php echo $photo->title ?>" class="admin-photo-thumbnail"> 
+                                    <img src="<?php echo $photo->picture_path(); ?>" alt="<?php echo $photo->title ?>" class="admin-photo-thumbnail">
                                     <br>
                                     <a href="delete_photo.php?id=<?php echo $photo->id; ?>">Delete</a>
                                     <a href="edit_photo.php?id=<?php echo $photo->id; ?>">Edit</a>
-                                    <a href="">View</a>
+                                    <a href="../photo.php?id=<?php echo $photo->id; ?>">View</a>
                                     <!-- <br> -->
                                     <!-- <img src="https://placehold.it/62X62" alt="<?php echo $photo->title ?>">     -->
                                 </td>
@@ -59,9 +59,9 @@ if(!$session->is_signed_in()){
                                 </tr>
                            <?php }
                           ?>
-                          
+
                       </tbody>
-                     
+
                   </table>
                </div>
            </div>
