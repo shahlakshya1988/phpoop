@@ -31,6 +31,8 @@
 	<link href="css/styles.css" rel="stylesheet">
 	<!-- DEVELOPER CSS -->
 
+      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
 </head>
 
 <body>
