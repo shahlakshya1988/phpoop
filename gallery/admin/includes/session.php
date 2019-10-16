@@ -1,8 +1,9 @@
-<?php 
+<?php
 class Session{
 	private $signed_in = false;
 	public $user_id;
 	public $message;
+	public $count;
 
 	public function __construct(){
 		if(session_status() == PHP_SESSION_NONE ){
@@ -10,6 +11,7 @@ class Session{
 		}
 		$this->check_the_login();
 		$this->check_message();
+		$this->visitor_account();
 	}
 
 	public function is_signed_in(){
@@ -41,7 +43,7 @@ class Session{
 			$this->signed_in = true;
 		}else{
 			$this->signed_in = false;
-			unset($this->user_id); 
+			unset($this->user_id);
 		}
 	}
 
@@ -58,6 +60,14 @@ class Session{
 			unset($_SESSION["message"]);
 		}else{
 			$this->message = "";
+		}
+	}
+
+	public function visitor_account(){
+		if(isset($_SESSION["count"])){
+			return $this->count = $_SESSION["count"]++;
+		}else{
+			return $_SESSION["count"] = 1;
 		}
 	}
 }
