@@ -15,10 +15,9 @@
             var data = google.visualization.arrayToDataTable([
               ['Task', 'Hours per Day'],
               ['Views',     <?php echo $session->count; ?>],
-              ['Eat',      2],
-              ['Commute',  2],
-              ['Watch TV', 2],
-              ['Sleep',    7]
+              ['Photos',      <?php echo Photo::count_all(); ?>],
+              ['Users',  <?php echo Users::count_all(); ?>],
+              ['Comments', <?php echo Comment::count_all(); ?>]
             ]);
 
             var options = {
