@@ -1,3 +1,4 @@
+<?php require_once "admin".DIRECTORY_SEPARATOR."includes".DIRECTORY_SEPARATOR."init.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 
