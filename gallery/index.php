@@ -10,20 +10,20 @@ $photos = Photo::find_all();
 
             <!-- Blog Entries Column -->
             <div class="col-md-12">
-
+				<div class="row thumbnails">
 				<?php foreach($photos as $photo){ ?>
-					<div class="row thumbnails">
+					
 						<div class="col-xs-6 col-md-3">
-							<a class="thumbnail" href="#">
-								<img src="" alt="" />
+							<a class="thumbnail" href="photo.php?id=<?php echo $photo->id; ?>">
+								<img src="admin/<?php echo $photo->picture_path(); ?>" alt="<?php echo $photo->title; ?>" />
 							</a>
 						</div>
 						<!-- col-xs-6 col-md-3 -->
-					</div>
-					<!-- div.row thumbnails -->
+					
 				<?php } ?>
           
-         
+         </div>
+					<!-- div.row thumbnails -->
 
             </div>
 
