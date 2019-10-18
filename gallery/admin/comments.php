@@ -26,7 +26,7 @@ if(!$session->is_signed_in()){
 
                    </h1>
                    <div>
-                       <a href="add_user.php" class="btn btn-primary">Add User</a>
+                       <!-- <a href="add_user.php" class="btn btn-primary">Add User</a> -->
                    </div>
                </div>
                <div class="col-lg-12">

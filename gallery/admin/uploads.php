@@ -37,7 +37,6 @@ if(isset($_POST["upload"])){
                <div class="col-lg-12">
                    <h1 class="page-header">
                        Uploads
-                       <small>Subheading</small>
                    </h1>
                    <ol class="breadcrumb">
                        <li>
