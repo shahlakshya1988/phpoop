@@ -9,6 +9,7 @@ require_once INCLUDES_PATH.DIRECTORY_SEPARATOR."db_object.php";
 require_once INCLUDES_PATH.DIRECTORY_SEPARATOR."session.php";
 require_once INCLUDES_PATH.DIRECTORY_SEPARATOR."users.php";
 require_once INCLUDES_PATH.DIRECTORY_SEPARATOR."photo.php";
+require_once INCLUDES_PATH.DIRECTORY_SEPARATOR."paginate.php";
 require_once INCLUDES_PATH.DIRECTORY_SEPARATOR."functions.php";
 
 //require_once "includes/users.php";

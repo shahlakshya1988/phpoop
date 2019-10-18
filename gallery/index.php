@@ -1,10 +1,14 @@
 <?php include("includes/header.php"); ?>
 <?php
 //finding all the photos 
-$photos = Photo::find_all();
 $page = !empty($_GET["page"]) ? (int)$_GET["page"] : 1;
 $items_per_page = 3;
 $item_counts = Photo::count_all();
+$paginate = new Paginate($page,$items_per_page,$item_counts);
+//var_dump($paginate);
+$sql = "SELECT * FROM `photos` LIMIT {$paginate->items_per_page} OFFSET {$paginate->offset()}"; 
+//echo $sql;
+$photos = Photo::find_by_query($sql);
 
 // finding all the photos  
 ?>
