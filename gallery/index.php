@@ -21,7 +21,7 @@ $photos = Photo::find_by_query($sql);
 				<div class="row thumbnails">
 				<?php foreach($photos as $photo){ ?>
 					
-						<div class="col-xs-6 col-md-3">
+						<div class="col-xs-6 col-md-4">
 							<a class="thumbnail" href="photo.php?id=<?php echo $photo->id; ?>">
 								<img src="admin/<?php echo $photo->picture_path(); ?>" alt="<?php echo $photo->title; ?>" class="img-responsive front_homepage_photo" />
 							</a>
@@ -43,10 +43,29 @@ $photos = Photo::find_by_query($sql);
 
             
                  <?php include("includes/sidebar.php"); ?>
+				</div> */ ?>
 
 
-
-        </div> */ ?>
+        </div> 
         <!-- /.row -->
-
+<div class="row">
+	<div class="col-lg-12">
+		<ul class="pager">
+			<?php
+				if($paginate->page_total()>1){
+					
+					if($paginate->has_previous()){
+						echo "<li class='previous'><a href=''>Previous</a></li>";
+					}
+					if($paginate->has_next()){
+						echo "<li class='next'><a href=''>Next</a></li>";
+					}
+				}
+			?>
+			
+			
+		</ul>
+	</div>
+<div>
+<!-- div.row -->
         <?php include("includes/footer.php"); ?>
