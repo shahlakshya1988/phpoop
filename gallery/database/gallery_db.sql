@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Oct 15, 2019 at 12:26 PM
+-- Generation Time: Oct 18, 2019 at 02:32 AM
 -- Server version: 5.7.26
 -- PHP Version: 7.2.18
 
@@ -66,16 +66,22 @@ CREATE TABLE IF NOT EXISTS `photos` (
   `type` varchar(255) NOT NULL,
   `size` int(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `photos`
 --
 
 INSERT INTO `photos` (`id`, `title`, `description`, `filename`, `caption`, `alternate_text`, `type`, `size`) VALUES
-(8, 'title', 'my description', '_large_image_1.jpg', 'Caption', 'Alternate Text', 'image/jpeg', 479843),
-(9, 'Photo 1', '', 'image-1.jpg', '', '', 'image/jpeg', 328747),
-(10, 'Photo 2', '', 'images-12.jpg', '', '', 'image/jpeg', 18540);
+(12, 'Photo 2', '', '_large_image_3.jpg', '', '', 'image/jpeg', 165053),
+(11, 'Photo 1', '', '_large_image_1.jpg', '', '', 'image/jpeg', 479843),
+(13, 'Photo 3', '', '_large_image_4.jpg', '', '', 'image/jpeg', 554659),
+(14, 'Photo 4', '', 'image-1.jpg', '', '', 'image/jpeg', 328747),
+(15, 'photo 5', '', 'images_2.jpg', '', '', 'image/jpeg', 18578),
+(16, 'Photo 7', '', 'images-1 copy.jpg', '', '', 'image/jpeg', 28947),
+(17, 'Photo 7', '', 'images-3 copy.jpg', '', '', 'image/jpeg', 18096),
+(18, 'Photo 8', '', 'images-4.jpg', '', '', 'image/jpeg', 23270),
+(19, 'Photo 8', '', 'images-9.jpg', '', '', 'image/jpeg', 21108);
 
 -- --------------------------------------------------------
 

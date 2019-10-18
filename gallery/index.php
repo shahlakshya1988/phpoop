@@ -2,6 +2,10 @@
 <?php
 //finding all the photos 
 $photos = Photo::find_all();
+$page = !empty($_GET["page"]) ? (int)$_GET["page"] : 1;
+$items_per_page = 3;
+$item_counts = Photo::count_all();
+
 // finding all the photos  
 ?>
 
