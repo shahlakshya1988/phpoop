@@ -55,10 +55,10 @@ $photos = Photo::find_by_query($sql);
 				if($paginate->page_total()>1){
 					
 					if($paginate->has_previous()){
-						echo "<li class='previous'><a href=''>Previous</a></li>";
+						echo "<li class='previous'><a href='".basename($_SERVER["PHP_SELF"])."?page=".$paginate->previous()."'>Previous</a></li>";
 					}
 					if($paginate->has_next()){
-						echo "<li class='next'><a href=''>Next</a></li>";
+						echo "<li class='next'><a href='".basename($_SERVER["PHP_SELF"])."?page=".$paginate->next()."'>Next</a></li>";
 					}
 				}
 			?>
