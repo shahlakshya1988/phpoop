@@ -3,3 +3,7 @@
 	//max-width:none !important;
 	height:150px !important;
 }
+.pager li.active a{
+	background:#000;
+	color:#fff;
+}
