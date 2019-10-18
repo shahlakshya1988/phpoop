@@ -84,7 +84,7 @@
                                 </div>
                                
                                     <div class="panel-footer">
-                                         <div>Page View from Gallery</div>
+                                         <span class="pull-left">Page View from Gallery</span>
                                       <!-- <span class="pull-left">View Details</span> -->
                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                         <div class="clearfix"></div>
