@@ -20,7 +20,10 @@ if(isset($_POST["add_user"])){
     $user->password = $password;
     $user->set_file($_FILES["user_image"]);
     //$user->save_user_and_image();
-    $user->save_user_and_image();
+    $user->upload_photo();
+    $user->save();
+    $message = "The User has been succesfully Added";
+    $session->message($message);
     redirect("users.php");
 
 	//echo "<pre>",print_r($_REQUEST),"</PRE>";
