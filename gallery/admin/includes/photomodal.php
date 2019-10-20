@@ -14,11 +14,11 @@ $photos = Photo::find_all();
                     <div class="thumbnails row">
 
                         <!-- PHP LOOP HERE CODE HERE-->
-                        <?php foreach($photos as $photo): ?>
+                        <?php foreach($photos as $photo): //var_dump($photo); ?>
 
                             <div class="col-xs-2">
                                 <a role="checkbox" aria-checked="false" tabindex="0" id="" href="#" class="thumbnail">
-                                    <img class="modal_thumbnails img-responsive" src="<?php echo $photo->picture_path(); ?>" data="<?php echo $photo->picture_path(); ?>">
+                                    <img class="modal_thumbnails img-responsive" src="<?php echo $photo->picture_path(); ?>" data-photo-id="<?php echo $photo->id; ?>">
                                 </a>
                                 <div class="photo-id hidden"></div>
                             </div>

@@ -1,7 +1,7 @@
 $(document).ready(function(){
    // alert("Loaded");
 });
-var image_name='',user_id='';
+var image_name='',user_id='',photo_id = '';
 $(document).on("click",".modal_thumbnails",function(){
 
     $("#set_user_image").prop("disabled",false);
@@ -12,6 +12,8 @@ $(document).on("click",".modal_thumbnails",function(){
     var image_href = $(this).prop("src");
     var image_href_split = image_href.split("/");
     image_name = image_href_split[image_href_split.length - 1];
+    photo_id=  $(this).data("photo-id");
+    alert(photo_id);
     
 });
 
