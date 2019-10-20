@@ -26,7 +26,8 @@ $(document).on("click","#set_user_image",function(){
                     //alert(data);
                     if(!data.error){
                        // alert(image_name);
-                       location.reload(true);
+                       // location.reload(true);
+                       $(".user_image_box a img").prop("src",data);
                     }
                 }
 

@@ -69,9 +69,15 @@ class Users extends Db_object{
         
      }
      public function ajax_save_user_image($user_image,$user_id){
+         $myuser = Users::find_by_id($user_id);
+         $this->username = $myuser->username;
+         $this->first_name = $myuser->first_name;
+         $this->last_name = $myuser->last_name;
+         $this->password = $myuser->password;
         $this->user_image = $user_image;
         $this->id = $user_id;
         $this->save();
+        echo $this->image_path_and_placeholder();
      } //public function ajax_save_user_image(){
 
 
