@@ -23,9 +23,10 @@ $(document).on("click","#set_user_image",function(){
         data:{image_name:image_name,user_id:user_id},
         type:"POST",
         success:function(data){
-                    alert(data);
+                    //alert(data);
                     if(!data.error){
-                        alert(image_name);
+                       // alert(image_name);
+                       location.reload(true);
                     }
                 }
 
