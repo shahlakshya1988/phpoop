@@ -13,7 +13,20 @@ $(document).on("click",".modal_thumbnails",function(){
     var image_href_split = image_href.split("/");
     image_name = image_href_split[image_href_split.length - 1];
     photo_id=  $(this).data("photo-id");
-    alert(photo_id);
+   //alert(photo_id);
+
+   $.ajax({
+       url:"includes/ajax_code.php",
+       type:"POST",
+       data:{photo_id : photo_id},
+       success:function(data){
+            //alert("Hello");
+            //alert(data);
+            data = JSON.parse(data);
+            console.log(data);
+            $("#modal_sidebar").html(data.id);
+       }
+   });
     
 });
 
