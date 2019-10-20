@@ -30,6 +30,9 @@ if(!$session->is_signed_in()){
                    </div>
                </div>
                <div class="col-lg-12">
+                   <?php echo  $session->message; ?>
+               </div>
+               <div class="col-lg-12">
                   <table class="table table-hover">
                       <thead>
                           <tr>

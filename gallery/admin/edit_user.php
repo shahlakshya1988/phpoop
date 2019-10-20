@@ -42,6 +42,8 @@ if (isset($_POST["edit_user"])) {
         $user->save();
     }
 
+    $message = "User Has Been Updated Successfully";
+    $session->message($message);
 
     // die();
     redirect("users.php");
