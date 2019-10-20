@@ -78,7 +78,7 @@ if (isset($_POST["edit_user"])) {
 
             <form name="add_user" action="" enctype="multipart/form-data" method="POST">
                 <div class="col-md-5 thumbnail">
-                    <a href="#" data-toggle="model" data-target="#photo-library" class="openmodal"><img src="<?php echo $user->image_path_and_placeholder(); ?>" alt=""></a>
+                    <a href="#" data-toggle="modal" data-target="#photo-library" class="openmodal"><img src="<?php echo $user->image_path_and_placeholder(); ?>" alt=""></a>
                 </div>
                 <div class="col-md-7">
                     <div class="form-group">

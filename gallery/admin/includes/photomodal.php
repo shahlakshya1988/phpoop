@@ -1,3 +1,7 @@
+<?php require_once __DIR__.DIRECTORY_SEPARATOR."init.php"; 
+$photos = Photo::find_all();
+//var_dump($photos);
+?>
 <div class="modal fade" id="photo-library">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -10,15 +14,17 @@
                     <div class="thumbnails row">
 
                         <!-- PHP LOOP HERE CODE HERE-->
+                        <?php foreach($photos as $photo): ?>
 
-                        <div class="col-xs-2">
-                            <a role="checkbox" aria-checked="false" tabindex="0" id="" href="#" class="thumbnail">
-                                <img class="modal_thumbnails img-responsive" src="<!-- PHP LOOP HERE CODE HERE-->" data="<!-- PHP LOOP HERE CODE HERE-->">
-                            </a>
-                            <div class="photo-id hidden"></div>
-                        </div>
+                            <div class="col-xs-2">
+                                <a role="checkbox" aria-checked="false" tabindex="0" id="" href="#" class="thumbnail">
+                                    <img class="modal_thumbnails img-responsive" src="<?php echo $photo->picture_path(); ?>" data="<?php echo $photo->picture_path(); ?>">
+                                </a>
+                                <div class="photo-id hidden"></div>
+                            </div>
 
-                        <!-- PHP LOOP HERE CODE HERE-->
+                            <!-- PHP LOOP HERE CODE HERE-->
+                        <?php endforeach; ?>
 
                     </div>
                 </div>

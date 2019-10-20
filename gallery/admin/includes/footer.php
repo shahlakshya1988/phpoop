@@ -8,7 +8,7 @@
   <script src="js/bootstrap.min.js"></script>
   <script type="text/javascript">
       $(document).on("click",".openmodal",function() {
-        $("#photo-library").modal();
+       // $("#photo-library").modal();
       });
   </script>
   <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
