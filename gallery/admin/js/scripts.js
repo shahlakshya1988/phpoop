@@ -22,9 +22,9 @@ $(document).on("click",".modal_thumbnails",function(){
        success:function(data){
             //alert("Hello");
             //alert(data);
-            data = JSON.parse(data);
-            console.log(data);
-            $("#modal_sidebar").html(data.id);
+            //data = JSON.parse(data);
+            //console.log(data);
+            $("#modal_sidebar").html(data);
        }
    });
     

@@ -12,8 +12,9 @@
 <?php 
 if(isset($_POST["photo_id"])){
     $photo_id = $_POST["photo_id"];
-    $photo = Photo::find_by_id($photo_id);
-    header("Content: application/json");
-    echo json_encode($photo);
+    //$photo = Photo::find_by_id($photo_id);
+    //header("Content: application/json");
+    //echo json_encode($photo);
+    Photo::display_sidebar_data($photo_id);
 }
 ?>
