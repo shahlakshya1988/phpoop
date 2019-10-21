@@ -78,7 +78,11 @@ class Users extends Db_object{
         $this->id = $user_id;
         $this->save();
         echo $this->image_path_and_placeholder();
-     } //public function ajax_save_user_image(){
+     } //public function ajax_save_user_image()
+
+     public function photos(){
+        return Photo::find_by_query("Select * from `photos` where `user_id` = '{$this->id}'");
+     }
 
 
 } // user class ends 

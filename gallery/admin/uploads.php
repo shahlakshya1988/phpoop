@@ -4,12 +4,14 @@ if (!$session->is_signed_in()) {
     redirect("login.php");
     die();
 }
-$message = "";
+
 if (isset($_POST["upload"])) {
     $title = $_POST["title"];
     $file = $_FILES["file_upload"];
+    $user_id = $session->user_id;
     $photo = new Photo();
     $photo->title = $title;
+    $photo->user_id = $user_id;
     $photo->set_file($file);
     if ($photo->save()) {
         $message = "Photo Uploaded Successfully";
@@ -21,8 +23,10 @@ if (isset($_POST["upload"])) {
 if(isset($_FILES["file"])){
     $title = $_POST["title"];
     $file = $_FILES["file"];
+    $user_id = $session->user_id;
     $photo = new Photo();
     $photo->title = $title;
+    $photo->user_id = $user_id;
     $photo->set_file($file);
     if ($photo->save()) {
         $message = "Photo Uploaded Successfully";

@@ -50,8 +50,9 @@ if(!$session->is_signed_in()){
                       </thead>
                       <tbody>
                           <?php
-                            $photos = Photo::find_all();
+                           // $photos = Photo::find_all();
                             // var_dump($photos);
+                            $photos = Users::find_by_id($session->user_id)->photos();
                             foreach($photos as $photo){ ?>
                                 <tr>
                                     <td><?php // echo $photo->picture_path(); ?>

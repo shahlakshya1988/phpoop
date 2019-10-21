@@ -127,9 +127,9 @@ class Db_object{
 	    $first_name = $database->escape_string($this->first_name);
 	    $last_name = $database->escape_string($this->last_name);*/
 	    $sql="INSERT INTO `".static::$db_table."` (".implode(",", array_keys($properties)).") values ('". implode("','",array_values($properties))  ."')";
-	    /*echo "<br>";
+	    echo "<br>";
 	    echo $sql;
-	    echo "<br>"; */
+	    echo "<br>";
 	    if($database->query($sql)){
 	        $this->id = $database->the_insert_id();
 	        return true;
