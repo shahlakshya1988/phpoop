@@ -17,6 +17,20 @@ if (isset($_POST["upload"])) {
         $message = join("<br>", $photo->errors);
     }
 }
+
+if(isset($_FILES["file"])){
+    $title = $_POST["title"];
+    $file = $_FILES["file"];
+    $photo = new Photo();
+    $photo->title = $title;
+    $photo->set_file($file);
+    if ($photo->save()) {
+        $message = "Photo Uploaded Successfully";
+    } else {
+        $message = join("<br>", $photo->errors);
+    }
+
+} //if(isset($_FILES["file"])){
 ?>
 
 <!-- Navigation -->
@@ -69,7 +83,7 @@ if (isset($_POST["upload"])) {
         <!-- /.row -->
         <div class="row">
             <div class="col-lg-12">
-                <form action="upload" class="dropzone"></form>
+                <form action="uploads.php" class="dropzone"></form>
             </div>
         </div>
 
