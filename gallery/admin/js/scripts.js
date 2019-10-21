@@ -1,5 +1,14 @@
 $(document).ready(function(){
    // alert("Loaded");
+   // edit photo sidebar
+
+   // edit photo sidebar
+});
+$(document).on("click",".info-box-header",function(){
+    //alert("Hello");
+    $(this).find("#toggle").toggleClass("glyphicon-menu-up");
+    $(this).find("#toggle").toggleClass("glyphicon-menu-down");
+    $(".inside").slideToggle("fast");
 });
 var image_name='',user_id='',photo_id = '';
 $(document).on("click",".modal_thumbnails",function(){
