@@ -13,6 +13,8 @@ $comment = Comment::find_by_id($comment_id);
 if($comment){
     $comment->delete();
 }
+$message = "The Comment Has Been Deleted Successfully";
+$session->message($message);
 redirect("comments.php");
 die();
 ?>

@@ -25,6 +25,17 @@ if(!$session->is_signed_in()){
                        Comments
 
                    </h1>
+				      <div class="col-lg-12">
+					   <?php
+							if(isset($session->message) && trim($session->message)!=''){
+								?>
+								<br>
+								<p class="bg-success text-center"><?php echo $session->message; ?></p>
+								<?php 
+							}
+					   ?>
+				   </div>
+				   <br>
                    <div>
                        <!-- <a href="add_user.php" class="btn btn-primary">Add User</a> -->
                    </div>

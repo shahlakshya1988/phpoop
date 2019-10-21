@@ -20,7 +20,10 @@ if($photo){
         
     }
 }else{
-    redirect("photos.php");
+    //redirect("photos.php");
 }
+$message= "Photo Has Been Deleted Successfully";
+$session->message($message);
 redirect("photos.php");
+die();
 ?>

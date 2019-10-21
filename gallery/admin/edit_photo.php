@@ -24,6 +24,8 @@ if(isset($_POST["update"])){
 	$photo->alternate_text = $alternate_text;
 	$photo->description = $description;
 	$photo->save();
+	$message = "Photo Has Been Updated Successfully";
+	$session->message($message);
 	redirect("photos.php");
 	die();
 } // isset($_POST["update"])
