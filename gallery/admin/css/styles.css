@@ -73,3 +73,7 @@
     margin-top:30px;
 }
 /* dropzone styles */
+
+#login-id label{
+    color:#fff;
+}
