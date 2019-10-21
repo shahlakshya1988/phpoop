@@ -4,6 +4,13 @@ $(document).ready(function(){
 
    // edit photo sidebar
 });
+$(document).on("click",".delete_confirm",function(e){
+    if(confirm("Are You Sure You Want To Delete Photo")){
+        return true;
+    }else{
+        return false;
+    }
+});
 $(document).on("click",".info-box-header",function(){
     //alert("Hello");
     $(this).find("#toggle").toggleClass("glyphicon-menu-up");

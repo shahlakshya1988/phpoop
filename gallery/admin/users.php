@@ -64,7 +64,7 @@ if(!$session->is_signed_in()){
                                     <td> <img src="<?php echo $user->image_path_and_placeholder(); ?>" alt="<?php echo $user->username ?>" class="admin-user-thumbnail"> </td>
                                     <td><?php echo $user->username ?> <br>
                                     <div class="action_links">
-                                        <a href="delete_user.php?id=<?php echo $user->id; ?>">Delete</a>
+                                        <a href="delete_user.php?id=<?php echo $user->id; ?>" class="delete_confirm">Delete</a>
                                         <a href="edit_user.php?id=<?php echo $user->id; ?>">Edit</a>
                                     <!--    <a href="">View</a> -->
                                     </div> </td>
