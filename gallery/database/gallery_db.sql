@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Oct 18, 2019 at 02:32 AM
+-- Generation Time: Oct 21, 2019 at 02:52 AM
 -- Server version: 5.7.26
 -- PHP Version: 7.2.18
 
@@ -66,7 +66,7 @@ CREATE TABLE IF NOT EXISTS `photos` (
   `type` varchar(255) NOT NULL,
   `size` int(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `photos`
@@ -81,7 +81,15 @@ INSERT INTO `photos` (`id`, `title`, `description`, `filename`, `caption`, `alte
 (16, 'Photo 7', '', 'images-1 copy.jpg', '', '', 'image/jpeg', 28947),
 (17, 'Photo 7', '', 'images-3 copy.jpg', '', '', 'image/jpeg', 18096),
 (18, 'Photo 8', '', 'images-4.jpg', '', '', 'image/jpeg', 23270),
-(19, 'Photo 8', '', 'images-9.jpg', '', '', 'image/jpeg', 21108);
+(19, 'Photo 8', '', 'images-9.jpg', '', '', 'image/jpeg', 21108),
+(20, '', '', 'images-3.jpg', '', '', 'image/jpeg', 18096),
+(21, '', '', 'images-4 copy.jpg', '', '', 'image/jpeg', 23270),
+(22, '', '', 'images-43 copy.jpg', '', '', 'image/jpeg', 27955),
+(23, '', '', 'images-43.jpg', '', '', 'image/jpeg', 27955),
+(24, '', '', 'images-44.jpg', '', '', 'image/jpeg', 29486),
+(25, '', '', 'images-44 copy.jpg', '', '', 'image/jpeg', 29486),
+(26, '', '', 'images-50 copy.jpg', '', '', 'image/jpeg', 21652),
+(27, '', '', 'images-50.jpg', '', '', 'image/jpeg', 21652);
 
 -- --------------------------------------------------------
 
@@ -98,7 +106,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `last_name` varchar(255) NOT NULL,
   `user_image` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=30 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
@@ -106,8 +114,9 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`id`, `username`, `password`, `first_name`, `last_name`, `user_image`) VALUES
 (1, 'rico', '123', 'John', 'Doe', 'user.jpg'),
-(2, 'edwin', '123', 'Edwin', 'Diaz', ''),
-(27, 'rico23', '123', 'ricofirstname', 'ricolastname', 'vehicledetails_img_4-12.png');
+(2, 'edwin', '123', 'edwin', 'diaz', 'image-1.jpg'),
+(28, 'myuser', '123', '123', '123', 'images-9.jpg'),
+(29, 'myuser1', '123', 'firstname', 'lastname', 'images-17.jpg');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
